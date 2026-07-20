@@ -1,0 +1,114 @@
+[
+  {
+    "id": "BUS0001",
+    "slug": "sri-lakshmi-silks",
+    "name": "Sri Lakshmi Silks",
+    "category": "Saree Shops",
+    "subcategory": "Bridal Sarees",
+    "area": "Kanchipuram Bus Stand",
+    "keywords": [
+      "bridal",
+      "silk",
+      "wedding",
+      "kanchipuram",
+      "saree"
+    ],
+    "tags": [
+      "silk",
+      "wedding"
+    ],
+    "featured": true,
+    "premium": true,
+    "verified": true,
+    "rating": 4.8
+  },
+  {
+    "id": "BUS0002",
+    "slug": "hotel-ganga",
+    "name": "Hotel Ganga",
+    "category": "Hotels",
+    "subcategory": "Pure Veg",
+    "area": "Kamakshi Amman Temple",
+    "keywords": [
+      "hotel",
+      "restaurant",
+      "veg",
+      "food",
+      "meals"
+    ],
+    "tags": [
+      "veg",
+      "hotel"
+    ],
+    "featured": true,
+    "premium": false,
+    "verified": true,
+    "rating": 4.4
+  },
+  {
+    "id": "BUS0003",
+    "slug": "annai-cabs",
+    "name": "Annai Cabs",
+    "category": "Cab Service",
+    "subcategory": "Local Taxi",
+    "area": "Collector Office",
+    "keywords": [
+      "cab",
+      "taxi",
+      "airport",
+      "outstation",
+      "tour"
+    ],
+    "tags": [
+      "travel",
+      "cab"
+    ],
+    "featured": false,
+    "premium": true,
+    "verified": true,
+    "rating": 4.6
+  },
+  {
+    "id": "BUS0004",
+    "slug": "kanchi-hospital",
+    "name": "Kanchi Multispeciality Hospital",
+    "category": "Hospitals",
+    "subcategory": "Multispeciality",
+    "area": "Gandhi Road",
+    "keywords": [
+      "hospital",
+      "doctor",
+      "emergency",
+      "icu"
+    ],
+    "tags": [
+      "health"
+    ],
+    "featured": true,
+    "premium": true,
+    "verified": true,
+    "rating": 4.7
+  },
+  {
+    "id": "BUS0005",
+    "slug": "kanchi-jewels",
+    "name": "Kanchi Jewels",
+    "category": "Jewellery",
+    "subcategory": "Gold Jewellery",
+    "area": "Big Bazaar Street",
+    "keywords": [
+      "gold",
+      "jewellery",
+      "diamond",
+      "wedding"
+    ],
+    "tags": [
+      "gold",
+      "jewellery"
+    ],
+    "featured": false,
+    "premium": true,
+    "verified": true,
+    "rating": 4.9
+  }
+]

@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Best Photography Spots in Kanchipuram | Kanchi360</title>
+<meta name="description" content="Where to get the best photographs in Kanchipuram, from temple architecture to silk weaving scenes and street life.">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+<style>
+  :root {
+    --brand-primary: #B8541D;
+    --brand-primary-dark: #8F3F14;
+    --brand-accent: #D4A017;
+    --brand-ink: #2A1E14;
+    --radius-lg: 16px;
+    --radius-md: 10px;
+  }
+  body { font-family: "Segoe UI", system-ui, -apple-system, sans-serif; color: var(--brand-ink); }
+  h1, h2, h3, h4, h5 { font-weight: 700; }
+  section { scroll-margin-top: 84px; }
+
+  .navbar-brand { color: var(--brand-accent) !important; }
+  .btn-primary { background: var(--brand-primary); border-color: var(--brand-primary); }
+  .btn-primary:hover { background: var(--brand-primary-dark); border-color: var(--brand-primary-dark); }
+  .btn-outline-primary { color: var(--brand-primary); border-color: var(--brand-primary); }
+  .btn-outline-primary:hover { background: var(--brand-primary); border-color: var(--brand-primary); }
+  .text-primary { color: var(--brand-primary) !important; }
+  .badge.bg-warning { background: var(--brand-accent) !important; }
+
+  .card { border-radius: var(--radius-lg); border: none; transition: transform .2s ease, box-shadow .2s ease; }
+  .card:hover { transform: translateY(-4px); box-shadow: 0 12px 24px rgba(0,0,0,.12) !important; }
+  .card-img-top { border-radius: var(--radius-lg) var(--radius-lg) 0 0; }
+  .btn { border-radius: var(--radius-md); min-height: 44px; }
+  .btn-sm { min-height: 36px; }
+
+  /* dark mode */
+  body.dark-mode { background:#121212; color:#e8e0d8; }
+  body.dark-mode .card { background:#1e1e1e; color:#e8e0d8; }
+  body.dark-mode .bg-light { background:#181818 !important; }
+  body.dark-mode .text-muted { color:#a8a098 !important; }
+
+  /* scroll reveal */
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; }
+  .reveal.revealed { opacity: 1; transform: none; }
+
+  /* dark-mode toggle (static, desktop only) */
+  #darkToggle {
+    position: fixed; right: 20px; bottom: 20px; z-index: 1050; border-radius: 50%;
+    width: 48px; height: 48px; display: none; align-items: center; justify-content: center;
+  }
+  @media (min-width: 768px) { #darkToggle { display: flex; } }
+
+  /* back-to-top: created by js/modules/backToTop.js, styled here via .back-top/.show */
+  .back-top {
+    position: fixed; right: 20px; bottom: 80px; z-index: 1050; border-radius: 50%;
+    width: 48px; height: 48px; display: none; align-items: center; justify-content: center;
+    background: var(--brand-primary); color: #fff; border: none; box-shadow: 0 4px 12px rgba(0,0,0,.2);
+  }
+  .back-top.show { display: flex; }
+  @media (max-width: 767.98px) { .back-top { display: none !important; } }
+
+  /* mobile bottom nav (native-app style) */
+  #bottomNav {
+    display: flex; position: fixed; bottom: 0; left: 0; right: 0; z-index: 1040;
+    background: #fff; border-top: 1px solid rgba(0,0,0,.08); box-shadow: 0 -2px 10px rgba(0,0,0,.08);
+  }
+  #bottomNav a {
+    flex: 1; text-align: center; padding: 8px 4px; font-size: .7rem; color: #6b6b6b; text-decoration: none;
+  }
+  #bottomNav a i { display: block; font-size: 1.25rem; margin-bottom: 2px; }
+  #bottomNav a.active { color: var(--brand-primary); }
+  body.dark-mode #bottomNav { background:#1e1e1e; border-color:#333; }
+  @media (min-width: 768px) { #bottomNav { display: none; } }
+  main { padding-bottom: 0; }
+  @media (max-width: 767.98px) { main { padding-bottom: 64px; } }
+
+  /* google translate: hide google chrome, keep just the dropdown */
+  .goog-te-banner-frame { display: none !important; }
+  body { top: 0 !important; }
+  #google_translate_element { display: inline-block; }
+  #google_translate_element .goog-te-gadget { font-size: 0; }
+  #google_translate_element .goog-te-gadget-simple {
+    border-radius: var(--radius-md); border: 1px solid rgba(255,255,255,.3); padding: 4px 8px; background: transparent;
+  }
+  #google_translate_element .goog-te-gadget-simple span { color: #fff; font-size: .8rem; }
+
+  /* skeleton shimmer (used on search page while MiniSearch loads) */
+  .skeleton { background: linear-gradient(90deg, #eee 25%, #f5f5f5 50%, #eee 75%); background-size: 200% 100%; animation: shimmer 1.2s infinite; border-radius: var(--radius-md); }
+
+  /* blog sidebar category badges, now clickable buttons but still badge-sized */
+  .sidebar-cat-btn { font-size: .8rem; padding: .35em .65em; min-height: unset; }
+  @keyframes shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
+</style>
+</head>
+<body>
+
+<!-- ============ Desktop navbar (with integrated search) ============ -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="/"><i class="bi bi-building"></i> Kanchi360</a>
+
+    <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- desktop-only inline menu + search -->
+    <div class="d-none d-lg-flex align-items-center flex-grow-1 justify-content-end">
+      <ul class="navbar-nav me-3">
+        <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="/business/">Business</a></li>
+        <li class="nav-item"><a class="nav-link" href="/tourist-places/">Temples</a></li>
+        <li class="nav-item"><a class="nav-link" href="/#shoppingZone">Shopping</a></li>
+        <li class="nav-item"><a class="nav-link" href="/#festivalCalendar">Festivals</a></li>
+        <li class="nav-item"><a class="nav-link" href="/#reviews">Reviews</a></li>
+        <li class="nav-item"><a class="nav-link" href="/blog/">Blog</a></li>
+        <li class="nav-item"><a class="nav-link" href="/#faq">FAQ</a></li>
+        <li class="nav-item"><a class="nav-link" href="/#contactUs">Contact</a></li>
+        <li class="nav-item"><a class="nav-link text-warning" href="/advertise-with-us/">Advertise</a></li>
+      </ul>
+      <form action="/search/" method="get" class="position-relative me-3" role="search"
+            data-search-widget data-search-navigate>
+        <input type="search" name="q" data-search-box autocomplete="off"
+               class="form-control form-control-sm" style="width:180px" placeholder="Search...">
+        <div data-search-suggestions class="list-group position-absolute w-100 shadow" style="z-index:2000; display:none;"></div>
+      </form>
+      <div id="google_translate_element"></div>
+    </div>
+  </div>
+</nav>
+
+<!-- ============ Mobile offcanvas drawer menu ============ -->
+<div class="offcanvas offcanvas-start" tabindex="-1" id="mobileMenu">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title"><i class="bi bi-building"></i> Kanchi360</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+  </div>
+  <div class="offcanvas-body d-flex flex-column">
+    <form action="/search/" method="get" class="position-relative mb-3" role="search"
+          data-search-widget data-search-navigate>
+      <input type="search" name="q" data-search-box autocomplete="off"
+             class="form-control" placeholder="Search shops, hotels, temples...">
+      <div data-search-suggestions class="list-group position-absolute w-100 shadow" style="z-index:2000; display:none;"></div>
+    </form>
+    <ul class="nav nav-pills flex-column gap-1">
+      <li class="nav-item"><a class="nav-link" href="/"><i class="bi bi-house me-2"></i>Home</a></li>
+      <li class="nav-item"><a class="nav-link" href="/business/"><i class="bi bi-shop me-2"></i>Business Directory</a></li>
+      <li class="nav-item"><a class="nav-link" href="/tourist-places/"><i class="bi bi-bank me-2"></i>Temples</a></li>
+      <li class="nav-item"><a class="nav-link" href="/#shoppingZone"><i class="bi bi-bag me-2"></i>Shopping</a></li>
+      <li class="nav-item"><a class="nav-link" href="/#festivalCalendar"><i class="bi bi-calendar-event me-2"></i>Festivals</a></li>
+      <li class="nav-item"><a class="nav-link" href="/#emergencyNumbers"><i class="bi bi-telephone me-2"></i>Emergency Numbers</a></li>
+      <li class="nav-item"><a class="nav-link" href="/#reviews"><i class="bi bi-star me-2"></i>Reviews</a></li>
+      <li class="nav-item"><a class="nav-link" href="/blog/"><i class="bi bi-journal-text me-2"></i>Blog</a></li>
+      <li class="nav-item"><a class="nav-link" href="/#faq"><i class="bi bi-question-circle me-2"></i>FAQ</a></li>
+      <li class="nav-item"><a class="nav-link" href="/#contactUs"><i class="bi bi-envelope me-2"></i>Contact</a></li>
+      <li class="nav-item"><a class="nav-link text-warning" href="/advertise-with-us/"><i class="bi bi-megaphone me-2"></i>Advertise With Us</a></li>
+    </ul>
+    <div class="mt-auto pt-3" id="google_translate_element_mobile"></div>
+  </div>
+</div>
+
+<main>
+
+
+<!-- SEO: canonical + OpenGraph + Twitter Card -->
+<link rel="canonical" href="https://kanchi360.com/blog/photography-spots-in-kanchipuram/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Best Photography Spots in Kanchipuram">
+<meta property="og:description" content="Where to get the best photographs in Kanchipuram, from temple architecture to silk weaving scenes and street life.">
+<meta property="og:image" content="https://images.unsplash.com/photo-1582510003544-4d00b7f74220?w=1200">
+<meta property="og:url" content="https://kanchi360.com/blog/photography-spots-in-kanchipuram/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Best Photography Spots in Kanchipuram">
+<meta name="twitter:description" content="Where to get the best photographs in Kanchipuram, from temple architecture to silk weaving scenes and street life.">
+<meta name="twitter:image" content="https://images.unsplash.com/photo-1582510003544-4d00b7f74220?w=1200">
+
+<!-- JSON-LD: BlogPosting -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Best Photography Spots in Kanchipuram",
+  "description": "Where to get the best photographs in Kanchipuram, from temple architecture to silk weaving scenes and street life.",
+  "image": "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?w=1200",
+  "author": { "@type": "Organization", "name": "Kanchi360 Editorial" },
+  "publisher": { "@type": "Organization", "name": "Kanchi360" },
+  "datePublished": "2026-01-31",
+  "dateModified": "2026-01-31",
+  "mainEntityOfPage": "https://kanchi360.com/blog/photography-spots-in-kanchipuram/"
+}
+</script>
+
+<!-- JSON-LD: BreadcrumbList -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://kanchi360.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://kanchi360.com/blog/" },
+    { "@type": "ListItem", "position": 3, "name": "Best Photography Spots in Kanchipuram", "item": "https://kanchi360.com/blog/photography-spots-in-kanchipuram/" }
+  ]
+}
+</script>
+
+
+<!-- JSON-LD: FAQPage -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    
+    {
+      "@type": "Question",
+      "name": "Are drones allowed for photography around Kanchipuram's temples?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Drone use around religious sites and certain public areas in India is often restricted or requires permission — check current local regulations before planning any drone photography, rather than assuming it's allowed." }
+    },
+    
+    {
+      "@type": "Question",
+      "name": "Is a professional camera needed, or is a phone camera good enough?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Modern phone cameras handle most casual photography needs well, especially in good light. A dedicated camera helps mainly for low-light interior temple shots or if you want more control over depth of field for detailed carving close-ups." }
+    }
+    
+  ]
+}
+</script>
+
+
+<!-- Hero -->
+<section class="py-4 py-md-5 bg-light">
+  <div class="container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item"><a href="/blog/">Blog</a></li>
+        <li class="breadcrumb-item"><a href="/blog/?category=Tourism">Tourism</a></li>
+        <li class="breadcrumb-item active">Best Photography Spots in Kanchipuram</li>
+      </ol>
+    </nav>
+    <span class="badge bg-secondary mb-2">Tourism</span>
+    <h1 class="fw-bold">Best Photography Spots in Kanchipuram</h1>
+    <p class="lead text-muted">Kanchipuram&#39;s temple architecture, weaving scenes and street life offer plenty for photographers. Here&#39;s where to point your camera, and a few etiquette notes to keep in mind.</p>
+    <p class="text-muted small">
+      By Kanchi360 Editorial &middot; Published 31 Jan 2026
+      &middot; Updated 31 Jan 2026 &middot; 6 min read
+    </p>
+  </div>
+</section>
+
+<section class="py-4">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-8">
+        <img src="https://images.unsplash.com/photo-1582510003544-4d00b7f74220?w=1200" alt="Temple gopuram tower photographed at sunrise" class="img-fluid rounded shadow mb-4 w-100" loading="lazy">
+
+        <article>
+          
+            
+              <h2 class="mt-4 mb-3">Temple Gopurams and Pillared Halls</h2>
+
+            
+          
+            
+              <p>The towering gopurams (temple gateway towers) and intricately carved pillared halls at temples like Ekambareswarar and Varadharaja Perumal are natural photography highlights, particularly in the soft light of early morning or late afternoon rather than harsh midday sun.</p>
+
+            
+          
+            
+              <h2 class="mt-4 mb-3">Kailasanathar Temple&#39;s Stone Carvings</h2>
+
+            
+          
+            
+              <p>Being one of the oldest and quieter temples in town, Kailasanathar offers a more relaxed setting for photographing detailed Pallava-era stone carving work without the crowds found at more actively worshipped temples.</p>
+
+            
+          
+            
+              
+                <div class="alert alert-success"><i class="bi bi-lightbulb me-2"></i>Quick Tip: Golden hour — shortly after sunrise or before sunset — gives temple stone architecture a warmth that flat midday light simply doesn&#39;t.</div>
+              
+
+            
+          
+            
+              <h2 class="mt-4 mb-3">Silk Weaving Scenes</h2>
+
+            
+          
+            
+              <p>If you arrange a visit to a working handloom (through a cooperative or guide), the weaving process itself — coloured threads, zari work in progress, the loom mechanics — makes for genuinely unique photographs you won&#39;t get anywhere else, and a nice contrast to temple architecture shots.</p>
+
+            
+          
+            
+              <h2 class="mt-4 mb-3">Market Streets and Everyday Life</h2>
+
+            
+          
+            
+              <p>The market streets around the silk shopping area and near the bus stand offer candid, colourful street photography opportunities — saree displays, local vendors, and everyday town life.</p>
+
+            
+          
+            
+              <div class="row g-2 my-3">
+                
+                <div class="col-12">
+                  <img src="https://images.unsplash.com/photo-1610030182451-fbf6bd8b4a4a?w=800" alt="Silk market streets offer some of Kanchipuram&#39;s most colourful candid photography" class="img-fluid rounded" loading="lazy">
+                </div>
+                
+              </div>
+              <p class="text-muted small text-center">Silk market streets offer some of Kanchipuram&#39;s most colourful candid photography</p>
+
+            
+          
+            
+              <h2 class="mt-4 mb-3">Photography Etiquette</h2>
+
+            
+          
+            
+              <ul>
+                <li>Always check for signage or ask before photographing inner sanctum areas of temples, since restrictions vary by site</li><li>Ask before photographing individuals directly, especially in more personal settings like a weaver&#39;s home workshop</li><li>Be mindful during active worship or ritual moments rather than treating everything as a photo opportunity</li><li>Early morning generally offers both better light and fewer crowds for temple photography</li>
+              </ul>
+
+            
+          
+            
+              <div class="card shadow-sm mb-3"><div class="card-body">
+                <h6 class="fw-bold">Are drones allowed for photography around Kanchipuram&#39;s temples?</h6>
+                <p class="mb-0 text-muted">Drone use around religious sites and certain public areas in India is often restricted or requires permission — check current local regulations before planning any drone photography, rather than assuming it&#39;s allowed.</p>
+              </div></div>
+            
+          
+            
+              <div class="card shadow-sm mb-3"><div class="card-body">
+                <h6 class="fw-bold">Is a professional camera needed, or is a phone camera good enough?</h6>
+                <p class="mb-0 text-muted">Modern phone cameras handle most casual photography needs well, especially in good light. A dedicated camera helps mainly for low-light interior temple shots or if you want more control over depth of field for detailed carving close-ups.</p>
+              </div></div>
+            
+          
+        </article>
+
+        
+        <h3 class="mt-5 mb-3">Frequently Asked Questions</h3>
+        <div class="accordion" id="postFaqAccordion">
+          
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button " data-bs-toggle="collapse" data-bs-target="#postFaq1">
+                Are drones allowed for photography around Kanchipuram&#39;s temples?
+              </button>
+            </h2>
+            <div id="postFaq1" class="accordion-collapse collapse show" data-bs-parent="#postFaqAccordion">
+              <div class="accordion-body">Drone use around religious sites and certain public areas in India is often restricted or requires permission — check current local regulations before planning any drone photography, rather than assuming it&#39;s allowed.</div>
+            </div>
+          </div>
+          
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#postFaq2">
+                Is a professional camera needed, or is a phone camera good enough?
+              </button>
+            </h2>
+            <div id="postFaq2" class="accordion-collapse collapse " data-bs-parent="#postFaqAccordion">
+              <div class="accordion-body">Modern phone cameras handle most casual photography needs well, especially in good light. A dedicated camera helps mainly for low-light interior temple shots or if you want more control over depth of field for detailed carving close-ups.</div>
+            </div>
+          </div>
+          
+        </div>
+        
+
+        <div class="mt-4">
+          <span class="badge bg-light text-dark border me-1">Kanchipuram photography spots</span><span class="badge bg-light text-dark border me-1">temple photography Tamil Nadu</span><span class="badge bg-light text-dark border me-1">Kanchipuram photo guide</span>
+        </div>
+      </div>
+
+      <div class="col-lg-4">
+        <div class="card shadow-sm mb-4"><div class="card-body">
+          <h6 class="mb-3">Related Articles</h6>
+          <ul class="list-unstyled small mb-0">
+            
+            <li class="mb-2">
+              <a href="/blog/nearby-tourist-places-around-kanchipuram/" class="text-decoration-none">Nearby Tourist Places Around Kanchipuram: Where to Go Next</a>
+              <span class="text-muted d-block" style="font-size:.75rem">Tourism</span>
+            </li>
+            
+            <li class="mb-2">
+              <a href="/blog/common-tourist-mistakes-to-avoid-in-kanchipuram/" class="text-decoration-none">Common Tourist Mistakes to Avoid in Kanchipuram</a>
+              <span class="text-muted d-block" style="font-size:.75rem">Tourism</span>
+            </li>
+            
+            <li class="mb-2">
+              <a href="/blog/two-day-itinerary-kanchipuram/" class="text-decoration-none">Two-Day Kanchipuram Itinerary: A Relaxed Pace for Temples and Shopping</a>
+              <span class="text-muted d-block" style="font-size:.75rem">Tourism</span>
+            </li>
+            
+            <li class="mb-2">
+              <a href="/blog/best-time-to-visit-kanchipuram/" class="text-decoration-none">Best Time to Visit Kanchipuram: Weather, Crowds and Planning Tips</a>
+              <span class="text-muted d-block" style="font-size:.75rem">Tourism</span>
+            </li>
+            
+            <li class="mb-2">
+              <a href="/blog/complete-tourist-guide-to-kanchipuram-one-day-itinerary/" class="text-decoration-none">Complete Tourist Guide to Kanchipuram: A Practical One-Day Itinerary</a>
+              <span class="text-muted d-block" style="font-size:.75rem">Tourism</span>
+            </li>
+            
+            <li class="mb-2">
+              <a href="/blog/shopping-tips-for-foreign-tourists-kanchipuram/" class="text-decoration-none">Shopping Tips for Foreign Tourists Visiting Kanchipuram</a>
+              <span class="text-muted d-block" style="font-size:.75rem">Shopping</span>
+            </li>
+            
+          </ul>
+        </div></div>
+
+        <div class="card shadow-sm"><div class="card-body">
+          <h6 class="mb-3">Explore More</h6>
+          <a href="/business/" class="btn btn-sm btn-outline-primary w-100 mb-2">Business Directory</a>
+          <a href="/tourist-places/" class="btn btn-sm btn-outline-primary w-100 mb-2">Temples &amp; Places</a>
+          <a href="/blog/" class="btn btn-sm btn-outline-primary w-100">All Blog Articles</a>
+        </div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ Footer ============ -->
+<footer class="bg-dark text-light pt-5 pb-4 mt-5">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-md-4">
+        <h5 class="text-warning"><i class="bi bi-building"></i> Kanchi360</h5>
+        <p class="text-secondary small">Your local guide to Kanchipuram — temples, shopping, hotels and services in one place.</p>
+      </div>
+      <div class="col-md-4">
+        <h6>Quick Links</h6>
+        <ul class="list-unstyled small">
+          <li><a href="/business/" class="link-light link-opacity-75">Business Directory</a></li>
+          <li><a href="/tourist-places/" class="link-light link-opacity-75">Temples &amp; Places</a></li>
+          <li><a href="/blog/" class="link-light link-opacity-75">Blog</a></li>
+          <li><a href="/#emergencyNumbers" class="link-light link-opacity-75">Emergency Numbers</a></li>
+        </ul>
+      </div>
+      <div class="col-md-4">
+        <h6>List Your Business</h6>
+        <p class="text-secondary small">Free basic listings, premium placements available.</p>
+        <a href="/#contactUs" class="btn btn-sm btn-warning text-dark">Get Listed</a>
+      </div>
+    </div>
+    <hr class="border-secondary">
+    <p class="text-center small">
+      <a href="/privacy-policy/" class="link-light link-opacity-75 me-2">Privacy Policy</a>&middot;
+      <a href="/terms-of-use/" class="link-light link-opacity-75 mx-2">Terms of Use</a>&middot;
+      <a href="/terms-and-conditions/" class="link-light link-opacity-75 mx-2">Terms &amp; Conditions</a>&middot;
+      <a href="/infringement-policy/" class="link-light link-opacity-75 ms-2">Infringement Policy</a>
+    </p>
+    <p class="text-secondary small">
+      <strong class="text-light">Advertise on Kanchi360 — Get Seen by More Local Customers.</strong>
+      Kanchipuram businesses grow faster when the right customers can find them at the right moment.
+      Kanchi360 puts your listing in front of people already searching in your category and area, with
+      plans covering higher search placement, an online catalogue, a verified badge and homepage banner
+      spots. <a href="/business-plans/" class="link-warning">Compare plans</a> or
+      <a href="/advertise-with-us/" class="link-warning">learn how it works</a> to get your business listed.
+    </p>
+    <p class="text-center text-secondary small mb-0">&copy; Kanchi360. Built for Kanchipuram.</p>
+  </div>
+</footer>
+
+<!-- ============ Floating dark-mode toggle (desktop) - back-to-top is added by JS ============ -->
+<button id="darkToggle" class="btn btn-warning">🌙</button>
+
+<!-- ============ Mobile bottom nav ============ -->
+<nav id="bottomNav">
+  <a href="/"><i class="bi bi-house"></i>Home</a>
+  <a href="/business/"><i class="bi bi-shop"></i>Business</a>
+  <a href="/search/"><i class="bi bi-search"></i>Search</a>
+  <a href="#" id="bottomNavWishlist"><i class="bi bi-heart"></i>Favorites</a>
+  <a href="#" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu"><i class="bi bi-list"></i>Menu</a>
+</nav>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- components first (other modules depend on these) -->
+<script src="/js/components/toast.js"></script>
+<script src="/js/components/modal.js"></script>
+
+<!-- feature modules: each one is independent, safe to edit without touching the rest -->
+<script src="/js/modules/theme.js"></script>
+<script src="/js/modules/booking.js"></script>
+<script src="/js/modules/wishlist.js"></script>
+<script src="/js/modules/counters.js"></script>
+<script src="/js/modules/templeSearch.js"></script>
+<script src="/js/modules/contactForm.js"></script>
+<script src="/js/modules/backToTop.js"></script>
+<script src="/js/modules/scrollReveal.js"></script>
+
+<!-- entry point, loaded last -->
+<script src="https://cdn.jsdelivr.net/npm/minisearch@7.2.0/dist/umd/index.min.js"></script>
+<script src="/js/search.js"></script>
+<script src="/js/core/app.js"></script>
+
+<!-- Google Translate, restricted to our supported languages.
+     TO ADD/REMOVE A LANGUAGE: edit the includedLanguages string below (two places,
+     desktop + mobile widget) using ISO codes, comma-separated, no spaces. -->
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({
+    pageLanguage: 'en',
+    includedLanguages: 'en,ta,hi,te,kn,fr,ml,bn,mr,gu',
+    layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+  }, 'google_translate_element');
+  new google.translate.TranslateElement({
+    pageLanguage: 'en',
+    includedLanguages: 'en,ta,hi,te,kn,fr,ml,bn,mr,gu',
+    layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+  }, 'google_translate_element_mobile');
+}
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+</html>

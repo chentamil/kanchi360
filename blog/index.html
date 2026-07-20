@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog | Kanchi360</title>
+<meta name="description" content="Kanchipuram travel, temple, silk saree and shopping guides from Kanchi360.">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+<style>
+  :root {
+    --brand-primary: #B8541D;
+    --brand-primary-dark: #8F3F14;
+    --brand-accent: #D4A017;
+    --brand-ink: #2A1E14;
+    --radius-lg: 16px;
+    --radius-md: 10px;
+  }
+  body { font-family: "Segoe UI", system-ui, -apple-system, sans-serif; color: var(--brand-ink); }
+  h1, h2, h3, h4, h5 { font-weight: 700; }
+  section { scroll-margin-top: 84px; }
+
+  .navbar-brand { color: var(--brand-accent) !important; }
+  .btn-primary { background: var(--brand-primary); border-color: var(--brand-primary); }
+  .btn-primary:hover { background: var(--brand-primary-dark); border-color: var(--brand-primary-dark); }
+  .btn-outline-primary { color: var(--brand-primary); border-color: var(--brand-primary); }
+  .btn-outline-primary:hover { background: var(--brand-primary); border-color: var(--brand-primary); }
+  .text-primary { color: var(--brand-primary) !important; }
+  .badge.bg-warning { background: var(--brand-accent) !important; }
+
+  .card { border-radius: var(--radius-lg); border: none; transition: transform .2s ease, box-shadow .2s ease; }
+  .card:hover { transform: translateY(-4px); box-shadow: 0 12px 24px rgba(0,0,0,.12) !important; }
+  .card-img-top { border-radius: var(--radius-lg) var(--radius-lg) 0 0; }
+  .btn { border-radius: var(--radius-md); min-height: 44px; }
+  .btn-sm { min-height: 36px; }
+
+  /* dark mode */
+  body.dark-mode { background:#121212; color:#e8e0d8; }
+  body.dark-mode .card { background:#1e1e1e; color:#e8e0d8; }
+  body.dark-mode .bg-light { background:#181818 !important; }
+  body.dark-mode .text-muted { color:#a8a098 !important; }
+
+  /* scroll reveal */
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; }
+  .reveal.revealed { opacity: 1; transform: none; }
+
+  /* dark-mode toggle (static, desktop only) */
+  #darkToggle {
+    position: fixed; right: 20px; bottom: 20px; z-index: 1050; border-radius: 50%;
+    width: 48px; height: 48px; display: none; align-items: center; justify-content: center;
+  }
+  @media (min-width: 768px) { #darkToggle { display: flex; } }
+
+  /* back-to-top: created by js/modules/backToTop.js, styled here via .back-top/.show */
+  .back-top {
+    position: fixed; right: 20px; bottom: 80px; z-index: 1050; border-radius: 50%;
+    width: 48px; height: 48px; display: none; align-items: center; justify-content: center;
+    background: var(--brand-primary); color: #fff; border: none; box-shadow: 0 4px 12px rgba(0,0,0,.2);
+  }
+  .back-top.show { display: flex; }
+  @media (max-width: 767.98px) { .back-top { display: none !important; } }
+
+  /* mobile bottom nav (native-app style) */
+  #bottomNav {
+    display: flex; position: fixed; bottom: 0; left: 0; right: 0; z-index: 1040;
+    background: #fff; border-top: 1px solid rgba(0,0,0,.08); box-shadow: 0 -2px 10px rgba(0,0,0,.08);
+  }
+  #bottomNav a {
+    flex: 1; text-align: center; padding: 8px 4px; font-size: .7rem; color: #6b6b6b; text-decoration: none;
+  }
+  #bottomNav a i { display: block; font-size: 1.25rem; margin-bottom: 2px; }
+  #bottomNav a.active { color: var(--brand-primary); }
+  body.dark-mode #bottomNav { background:#1e1e1e; border-color:#333; }
+  @media (min-width: 768px) { #bottomNav { display: none; } }
+  main { padding-bottom: 0; }
+  @media (max-width: 767.98px) { main { padding-bottom: 64px; } }
+
+  /* google translate: hide google chrome, keep just the dropdown */
+  .goog-te-banner-frame { display: none !important; }
+  body { top: 0 !important; }
+  #google_translate_element { display: inline-block; }
+  #google_translate_element .goog-te-gadget { font-size: 0; }
+  #google_translate_element .goog-te-gadget-simple {
+    border-radius: var(--radius-md); border: 1px solid rgba(255,255,255,.3); padding: 4px 8px; background: transparent;
+  }
+  #google_translate_element .goog-te-gadget-simple span { color: #fff; font-size: .8rem; }
+
+  /* skeleton shimmer (used on search page while MiniSearch loads) */
+  .skeleton { background: linear-gradient(90deg, #eee 25%, #f5f5f5 50%, #eee 75%); background-size: 200% 100%; animation: shimmer 1.2s infinite; border-radius: var(--radius-md); }
+
+  /* blog sidebar category badges, now clickable buttons but still badge-sized */
+  .sidebar-cat-btn { font-size: .8rem; padding: .35em .65em; min-height: unset; }
+  @keyframes shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
+</style>
+</head>
+<body>
+
+<!-- ============ Desktop navbar (with integrated search) ============ -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="/"><i class="bi bi-building"></i> Kanchi360</a>
+
+    <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- desktop-only inline menu + search -->
+    <div class="d-none d-lg-flex align-items-center flex-grow-1 justify-content-end">
+      <ul class="navbar-nav me-3">
+        <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="/business/">Business</a></li>
+        <li class="nav-item"><a class="nav-link" href="/tourist-places/">Temples</a></li>
+        <li class="nav-item"><a class="nav-link" href="/#shoppingZone">Shopping</a></li>
+        <li class="nav-item"><a class="nav-link" href="/#festivalCalendar">Festivals</a></li>
+        <li class="nav-item"><a class="nav-link" href="/#reviews">Reviews</a></li>
+        <li class="nav-item"><a class="nav-link" href="/blog/">Blog</a></li>
+        <li class="nav-item"><a class="nav-link" href="/#faq">FAQ</a></li>
+        <li class="nav-item"><a class="nav-link" href="/#contactUs">Contact</a></li>
+        <li class="nav-item"><a class="nav-link text-warning" href="/advertise-with-us/">Advertise</a></li>
+      </ul>
+      <form action="/search/" method="get" class="position-relative me-3" role="search"
+            data-search-widget data-search-navigate>
+        <input type="search" name="q" data-search-box autocomplete="off"
+               class="form-control form-control-sm" style="width:180px" placeholder="Search...">
+        <div data-search-suggestions class="list-group position-absolute w-100 shadow" style="z-index:2000; display:none;"></div>
+      </form>
+      <div id="google_translate_element"></div>
+    </div>
+  </div>
+</nav>
+
+<!-- ============ Mobile offcanvas drawer menu ============ -->
+<div class="offcanvas offcanvas-start" tabindex="-1" id="mobileMenu">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title"><i class="bi bi-building"></i> Kanchi360</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+  </div>
+  <div class="offcanvas-body d-flex flex-column">
+    <form action="/search/" method="get" class="position-relative mb-3" role="search"
+          data-search-widget data-search-navigate>
+      <input type="search" name="q" data-search-box autocomplete="off"
+             class="form-control" placeholder="Search shops, hotels, temples...">
+      <div data-search-suggestions class="list-group position-absolute w-100 shadow" style="z-index:2000; display:none;"></div>
+    </form>
+    <ul class="nav nav-pills flex-column gap-1">
+      <li class="nav-item"><a class="nav-link" href="/"><i class="bi bi-house me-2"></i>Home</a></li>
+      <li class="nav-item"><a class="nav-link" href="/business/"><i class="bi bi-shop me-2"></i>Business Directory</a></li>
+      <li class="nav-item"><a class="nav-link" href="/tourist-places/"><i class="bi bi-bank me-2"></i>Temples</a></li>
+      <li class="nav-item"><a class="nav-link" href="/#shoppingZone"><i class="bi bi-bag me-2"></i>Shopping</a></li>
+      <li class="nav-item"><a class="nav-link" href="/#festivalCalendar"><i class="bi bi-calendar-event me-2"></i>Festivals</a></li>
+      <li class="nav-item"><a class="nav-link" href="/#emergencyNumbers"><i class="bi bi-telephone me-2"></i>Emergency Numbers</a></li>
+      <li class="nav-item"><a class="nav-link" href="/#reviews"><i class="bi bi-star me-2"></i>Reviews</a></li>
+      <li class="nav-item"><a class="nav-link" href="/blog/"><i class="bi bi-journal-text me-2"></i>Blog</a></li>
+      <li class="nav-item"><a class="nav-link" href="/#faq"><i class="bi bi-question-circle me-2"></i>FAQ</a></li>
+      <li class="nav-item"><a class="nav-link" href="/#contactUs"><i class="bi bi-envelope me-2"></i>Contact</a></li>
+      <li class="nav-item"><a class="nav-link text-warning" href="/advertise-with-us/"><i class="bi bi-megaphone me-2"></i>Advertise With Us</a></li>
+    </ul>
+    <div class="mt-auto pt-3" id="google_translate_element_mobile"></div>
+  </div>
+</div>
+
+<main>
+<section class="py-5 bg-light">
+  <div class="container">
+    <h1 class="mb-2">Kanchi360 Blog</h1>
+    <p class="text-muted mb-4">Silk saree guides, temple travel tips, hotels, food and everything else you need for Kanchipuram.</p>
+
+    <div class="position-relative mb-3" style="max-width:500px">
+      <input id="blogSearchBox" type="text" class="form-control form-control-lg" autocomplete="off"
+             placeholder="Search blogs by title, keyword or category...">
+    </div>
+
+    <div class="d-flex flex-wrap gap-2 mb-2" id="blogCategoryFilters">
+      <button class="btn btn-sm btn-dark active" data-cat="all">All</button>
+      
+      <button class="btn btn-sm btn-outline-dark" data-cat="Tourism">Tourism (6)</button>
+      
+      <button class="btn btn-sm btn-outline-dark" data-cat="Shopping">Shopping (5)</button>
+      
+      <button class="btn btn-sm btn-outline-dark" data-cat="Marriage">Marriage (4)</button>
+      
+      <button class="btn btn-sm btn-outline-dark" data-cat="Travel">Travel (5)</button>
+      
+      <button class="btn btn-sm btn-outline-dark" data-cat="Food">Food (2)</button>
+      
+      <button class="btn btn-sm btn-outline-dark" data-cat="History">History (2)</button>
+      
+      <button class="btn btn-sm btn-outline-dark" data-cat="Buying Guide">Buying Guide (3)</button>
+      
+      <button class="btn btn-sm btn-outline-dark" data-cat="Temple Guide">Temple Guide (2)</button>
+      
+      <button class="btn btn-sm btn-outline-dark" data-cat="Hotels">Hotels (1)</button>
+      
+    </div>
+  </div>
+</section>
+
+<section class="py-5">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-lg-8">
+        <div class="row g-4" id="blogGrid">
+          
+          <div class="col-md-6 blog-card"
+               data-cat="Tourism"
+               data-title="nearby tourist places around kanchipuram: where to go next"
+               data-keywords="places near kanchipuram kanchipuram nearby destinations day trips from kanchipuram"
+               data-slug="nearby-tourist-places-around-kanchipuram">
+            <div class="card h-100 shadow-sm">
+              <img src="https://images.unsplash.com/photo-1596401057633-54c15aab5bde?w=1200" alt="Scenic Tamil Nadu countryside road" class="card-img-top" loading="lazy" style="height:200px;object-fit:cover">
+              <div class="card-body">
+                <span class="badge bg-secondary mb-2">Tourism</span>
+                <h5><a href="/blog/nearby-tourist-places-around-kanchipuram/" class="text-decoration-none text-dark">Nearby Tourist Places Around Kanchipuram: Where to Go Next</a></h5>
+                <p class="text-muted small mb-2">7 min read &middot; 3 Feb 2026</p>
+                <p class="text-muted">Kanchipuram makes a great base for exploring several nearby destinations, each offering something quite different from t…</p>
+                <a href="/blog/nearby-tourist-places-around-kanchipuram/" class="btn btn-sm btn-outline-primary">Read More</a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-md-6 blog-card"
+               data-cat="Shopping"
+               data-title="shopping tips for foreign tourists visiting kanchipuram"
+               data-keywords="foreign tourist shopping guide kanchipuram shopping for tourists buying silk saree as tourist"
+               data-slug="shopping-tips-for-foreign-tourists-kanchipuram">
+            <div class="card h-100 shadow-sm">
+              <img src="https://images.unsplash.com/photo-1610030182451-fbf6bd8b4a4a?w=1200" alt="Tourist browsing silk sarees in a shop" class="card-img-top" loading="lazy" style="height:200px;object-fit:cover">
+              <div class="card-body">
+                <span class="badge bg-secondary mb-2">Shopping</span>
+                <h5><a href="/blog/shopping-tips-for-foreign-tourists-kanchipuram/" class="text-decoration-none text-dark">Shopping Tips for Foreign Tourists Visiting Kanchipuram</a></h5>
+                <p class="text-muted small mb-2">7 min read &middot; 2 Feb 2026</p>
+                <p class="text-muted">Shopping in Kanchipuram as a foreign visitor comes with a few extra considerations — from understanding an unfamiliar pr…</p>
+                <a href="/blog/shopping-tips-for-foreign-tourists-kanchipuram/" class="btn btn-sm btn-outline-primary">Read More</a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-md-6 blog-card"
+               data-cat="Marriage"
+               data-title="the complete wedding shopping checklist for a kanchipuram trip"
+               data-keywords="wedding shopping checklist kanchipuram wedding trip planning wedding shopping list"
+               data-slug="wedding-shopping-checklist-kanchipuram">
+            <div class="card h-100 shadow-sm">
+              <img src="https://images.unsplash.com/photo-1583391733956-6c78276477e2?w=1200" alt="Wedding shopping items laid out together" class="card-img-top" loading="lazy" style="height:200px;object-fit:cover">
+              <div class="card-body">
+                <span class="badge bg-secondary mb-2">Marriage</span>
+                <h5><a href="/blog/wedding-shopping-checklist-kanchipuram/" class="text-decoration-none text-dark">The Complete Wedding Shopping Checklist for a Kanchipuram Trip</a></h5>
+                <p class="text-muted small mb-2">15 min read &middot; 1 Feb 2026</p>
+                <p class="text-muted">A dedicated wedding shopping trip to Kanchipuram covers a lot of ground — sarees, jewellery, groom attire, and timing it…</p>
+                <a href="/blog/wedding-shopping-checklist-kanchipuram/" class="btn btn-sm btn-outline-primary">Read More</a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-md-6 blog-card"
+               data-cat="Tourism"
+               data-title="best photography spots in kanchipuram"
+               data-keywords="kanchipuram photography spots temple photography tamil nadu kanchipuram photo guide"
+               data-slug="photography-spots-in-kanchipuram">
+            <div class="card h-100 shadow-sm">
+              <img src="https://images.unsplash.com/photo-1582510003544-4d00b7f74220?w=1200" alt="Temple gopuram tower photographed at sunrise" class="card-img-top" loading="lazy" style="height:200px;object-fit:cover">
+              <div class="card-body">
+                <span class="badge bg-secondary mb-2">Tourism</span>
+                <h5><a href="/blog/photography-spots-in-kanchipuram/" class="text-decoration-none text-dark">Best Photography Spots in Kanchipuram</a></h5>
+                <p class="text-muted small mb-2">6 min read &middot; 31 Jan 2026</p>
+                <p class="text-muted">Kanchipuram&#39;s temple architecture, weaving scenes and street life offer plenty for photographers. Here&#39;s where to point…</p>
+                <a href="/blog/photography-spots-in-kanchipuram/" class="btn btn-sm btn-outline-primary">Read More</a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-md-6 blog-card"
+               data-cat="Travel"
+               data-title="kanchipuram railway station and bus stand guide"
+               data-keywords="kanchipuram railway station kanchipuram bus stand how to reach kanchipuram"
+               data-slug="kanchipuram-railway-bus-stand-guide">
+            <div class="card h-100 shadow-sm">
+              <img src="https://images.unsplash.com/photo-1601758228041-3caa5b640540?w=1200" alt="Indian railway platform" class="card-img-top" loading="lazy" style="height:200px;object-fit:cover">
+              <div class="card-body">
+                <span class="badge bg-secondary mb-2">Travel</span>
+                <h5><a href="/blog/kanchipuram-railway-bus-stand-guide/" class="text-decoration-none text-dark">Kanchipuram Railway Station and Bus Stand Guide</a></h5>
+                <p class="text-muted small mb-2">6 min read &middot; 30 Jan 2026</p>
+                <p class="text-muted">Whether you&#39;re arriving by train or bus, here&#39;s what to expect at Kanchipuram&#39;s railway station and bus stand, and how t…</p>
+                <a href="/blog/kanchipuram-railway-bus-stand-guide/" class="btn btn-sm btn-outline-primary">Read More</a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-md-6 blog-card"
+               data-cat="Food"
+               data-title="street foods to try in kanchipuram"
+               data-keywords="kanchipuram street food local snacks kanchipuram south indian street snacks"
+               data-slug="street-foods-to-try-in-kanchipuram">
+            <div class="card h-100 shadow-sm">
+              <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?w=1200" alt="South Indian street food snacks" class="card-img-top" loading="lazy" style="height:200px;object-fit:cover">
+              <div class="card-body">
+                <span class="badge bg-secondary mb-2">Food</span>
+                <h5><a href="/blog/street-foods-to-try-in-kanchipuram/" class="text-decoration-none text-dark">Street Foods to Try in Kanchipuram</a></h5>
+                <p class="text-muted small mb-2">6 min read &middot; 29 Jan 2026</p>
+                <p class="text-muted">Between temple visits and silk shopping, Kanchipuram&#39;s street food stalls offer quick, satisfying snacks that give a gen…</p>
+                <a href="/blog/street-foods-to-try-in-kanchipuram/" class="btn btn-sm btn-outline-primary">Read More</a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-md-6 blog-card"
+               data-cat="Shopping"
+               data-title="different types of kanchipuram sarees explained"
+               data-keywords="types of kanchipuram sarees kanchipuram saree styles temple border saree"
+               data-slug="different-types-of-kanchipuram-sarees">
+            <div class="card h-100 shadow-sm">
+              <img src="https://images.unsplash.com/photo-1583391733956-6c78276477e2?w=1200" alt="Different styles of Kanchipuram silk sarees displayed together" class="card-img-top" loading="lazy" style="height:200px;object-fit:cover">
+              <div class="card-body">
+                <span class="badge bg-secondary mb-2">Shopping</span>
+                <h5><a href="/blog/different-types-of-kanchipuram-sarees/" class="text-decoration-none text-dark">Different Types of Kanchipuram Sarees Explained</a></h5>
+                <p class="text-muted small mb-2">7 min read &middot; 28 Jan 2026</p>
+                <p class="text-muted">Kanchipuram sarees aren&#39;t a single style — there&#39;s real variety in body pattern, border design and finish. Knowing the m…</p>
+                <a href="/blog/different-types-of-kanchipuram-sarees/" class="btn btn-sm btn-outline-primary">Read More</a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-md-6 blog-card"
+               data-cat="History"
+               data-title="how kanchipuram silk sarees are made: from raw silk to finished weave"
+               data-keywords="how silk sarees are made kanchipuram weaving process handloom silk saree making"
+               data-slug="how-kanchipuram-silk-sarees-are-made">
+            <div class="card h-100 shadow-sm">
+              <img src="https://images.unsplash.com/photo-1595341888016-a392ef81b7de?w=1200" alt="Handloom weaving in progress" class="card-img-top" loading="lazy" style="height:200px;object-fit:cover">
+              <div class="card-body">
+                <span class="badge bg-secondary mb-2">History</span>
+                <h5><a href="/blog/how-kanchipuram-silk-sarees-are-made/" class="text-decoration-none text-dark">How Kanchipuram Silk Sarees Are Made: From Raw Silk to Finished Weave</a></h5>
+                <p class="text-muted small mb-2">8 min read &middot; 27 Jan 2026</p>
+                <p class="text-muted">Understanding the process behind a Kanchipuram silk saree — from raw silk thread to the finished korvai-woven piece — ma…</p>
+                <a href="/blog/how-kanchipuram-silk-sarees-are-made/" class="btn btn-sm btn-outline-primary">Read More</a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-md-6 blog-card"
+               data-cat="Tourism"
+               data-title="common tourist mistakes to avoid in kanchipuram"
+               data-keywords="kanchipuram tourist mistakes kanchipuram travel tips first time kanchipuram visit"
+               data-slug="common-tourist-mistakes-to-avoid-in-kanchipuram">
+            <div class="card h-100 shadow-sm">
+              <img src="https://images.unsplash.com/photo-1601921804430-ff3c40c5e63e?w=1200" alt="Tourist walking through a temple town street" class="card-img-top" loading="lazy" style="height:200px;object-fit:cover">
+              <div class="card-body">
+                <span class="badge bg-secondary mb-2">Tourism</span>
+                <h5><a href="/blog/common-tourist-mistakes-to-avoid-in-kanchipuram/" class="text-decoration-none text-dark">Common Tourist Mistakes to Avoid in Kanchipuram</a></h5>
+                <p class="text-muted small mb-2">7 min read &middot; 26 Jan 2026</p>
+                <p class="text-muted">A little planning avoids most of the common frustrations first-time visitors run into in Kanchipuram — from rushed itine…</p>
+                <a href="/blog/common-tourist-mistakes-to-avoid-in-kanchipuram/" class="btn btn-sm btn-outline-primary">Read More</a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-md-6 blog-card"
+               data-cat="Travel"
+               data-title="vedanthangal bird sanctuary: a nature day trip from kanchipuram"
+               data-keywords="vedanthangal bird sanctuary kanchipuram nature trip bird watching tamil nadu"
+               data-slug="vedanthangal-bird-sanctuary-day-trip">
+            <div class="card h-100 shadow-sm">
+              <img src="https://images.unsplash.com/photo-1444464666168-49d633b86797?w=1200" alt="Wetland bird sanctuary with birds on water" class="card-img-top" loading="lazy" style="height:200px;object-fit:cover">
+              <div class="card-body">
+                <span class="badge bg-secondary mb-2">Travel</span>
+                <h5><a href="/blog/vedanthangal-bird-sanctuary-day-trip/" class="text-decoration-none text-dark">Vedanthangal Bird Sanctuary: A Nature Day Trip From Kanchipuram</a></h5>
+                <p class="text-muted small mb-2">6 min read &middot; 25 Jan 2026</p>
+                <p class="text-muted">For visitors who want a break from temples and shopping, Vedanthangal Bird Sanctuary offers a completely different kind…</p>
+                <a href="/blog/vedanthangal-bird-sanctuary-day-trip/" class="btn btn-sm btn-outline-primary">Read More</a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-md-6 blog-card"
+               data-cat="Travel"
+               data-title="vellore fort day trip from kanchipuram: is it worth the detour?"
+               data-keywords="vellore fort from kanchipuram vellore day trip tamil nadu fort visit"
+               data-slug="vellore-fort-day-trip-from-kanchipuram">
+            <div class="card h-100 shadow-sm">
+              <img src="https://images.unsplash.com/photo-1596401057633-54c15aab5bde?w=1200" alt="Historic fort walls and moat" class="card-img-top" loading="lazy" style="height:200px;object-fit:cover">
+              <div class="card-body">
+                <span class="badge bg-secondary mb-2">Travel</span>
+                <h5><a href="/blog/vellore-fort-day-trip-from-kanchipuram/" class="text-decoration-none text-dark">Vellore Fort Day Trip From Kanchipuram: Is It Worth the Detour?</a></h5>
+                <p class="text-muted small mb-2">6 min read &middot; 24 Jan 2026</p>
+                <p class="text-muted">Vellore Fort makes for a feasible half-day or full-day detour from Kanchipuram if you&#39;re interested in South Indian mili…</p>
+                <a href="/blog/vellore-fort-day-trip-from-kanchipuram/" class="btn btn-sm btn-outline-primary">Read More</a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-md-6 blog-card"
+               data-cat="Tourism"
+               data-title="two-day kanchipuram itinerary: a relaxed pace for temples and shopping"
+               data-keywords="two day kanchipuram itinerary kanchipuram 2 day trip kanchipuram travel plan"
+               data-slug="two-day-itinerary-kanchipuram">
+            <div class="card h-100 shadow-sm">
+              <img src="https://images.unsplash.com/photo-1582510003544-4d00b7f74220?w=1200" alt="Temple gopuram at golden hour" class="card-img-top" loading="lazy" style="height:200px;object-fit:cover">
+              <div class="card-body">
+                <span class="badge bg-secondary mb-2">Tourism</span>
+                <h5><a href="/blog/two-day-itinerary-kanchipuram/" class="text-decoration-none text-dark">Two-Day Kanchipuram Itinerary: A Relaxed Pace for Temples and Shopping</a></h5>
+                <p class="text-muted small mb-2">8 min read &middot; 23 Jan 2026</p>
+                <p class="text-muted">If a single day feels too rushed, a two-day Kanchipuram trip lets you see more temples in depth, shop unhurried, and eve…</p>
+                <a href="/blog/two-day-itinerary-kanchipuram/" class="btn btn-sm btn-outline-primary">Read More</a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-md-6 blog-card"
+               data-cat="Buying Guide"
+               data-title="how much does a kanchipuram saree really cost? a price breakdown"
+               data-keywords="kanchipuram saree price how much does a silk saree cost saree pricing guide"
+               data-slug="how-much-does-kanchipuram-saree-cost">
+            <div class="card h-100 shadow-sm">
+              <img src="https://images.unsplash.com/photo-1610030182451-fbf6bd8b4a4a?w=1200" alt="Price tags on silk sarees in a showroom" class="card-img-top" loading="lazy" style="height:200px;object-fit:cover">
+              <div class="card-body">
+                <span class="badge bg-secondary mb-2">Buying Guide</span>
+                <h5><a href="/blog/how-much-does-kanchipuram-saree-cost/" class="text-decoration-none text-dark">How Much Does a Kanchipuram Saree Really Cost? A Price Breakdown</a></h5>
+                <p class="text-muted small mb-2">7 min read &middot; 22 Jan 2026</p>
+                <p class="text-muted">Saree prices in Kanchipuram can range enormously, which confuses a lot of first-time buyers. Here&#39;s what actually determ…</p>
+                <a href="/blog/how-much-does-kanchipuram-saree-cost/" class="btn btn-sm btn-outline-primary">Read More</a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-md-6 blog-card"
+               data-cat="Shopping"
+               data-title="budget vs luxury kanchipuram saree shopping: how to shop at any price point"
+               data-keywords="budget saree shopping luxury silk saree kanchipuram saree price range"
+               data-slug="budget-vs-luxury-kanchipuram-saree-shopping-guide">
+            <div class="card h-100 shadow-sm">
+              <img src="https://images.unsplash.com/photo-1583391733956-6c78276477e2?w=1200" alt="Range of silk sarees from simple to elaborate" class="card-img-top" loading="lazy" style="height:200px;object-fit:cover">
+              <div class="card-body">
+                <span class="badge bg-secondary mb-2">Shopping</span>
+                <h5><a href="/blog/budget-vs-luxury-kanchipuram-saree-shopping-guide/" class="text-decoration-none text-dark">Budget vs Luxury Kanchipuram Saree Shopping: How to Shop at Any Price Point</a></h5>
+                <p class="text-muted small mb-2">8 min read &middot; 21 Jan 2026</p>
+                <p class="text-muted">There&#39;s a genuine, good-quality Kanchipuram silk saree at nearly every budget — you just need to know what to prioritize…</p>
+                <a href="/blog/budget-vs-luxury-kanchipuram-saree-shopping-guide/" class="btn btn-sm btn-outline-primary">Read More</a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-md-6 blog-card"
+               data-cat="Shopping"
+               data-title="corporate gift sarees: a bulk buying guide for businesses and events"
+               data-keywords="corporate gift sarees bulk saree buying festival gifting sarees"
+               data-slug="corporate-gift-sarees-bulk-buying-guide">
+            <div class="card h-100 shadow-sm">
+              <img src="https://images.unsplash.com/photo-1610189844777-4e3b6dd8b4a4?w=1200" alt="Stack of folded silk sarees for bulk gifting" class="card-img-top" loading="lazy" style="height:200px;object-fit:cover">
+              <div class="card-body">
+                <span class="badge bg-secondary mb-2">Shopping</span>
+                <h5><a href="/blog/corporate-gift-sarees-bulk-buying-guide/" class="text-decoration-none text-dark">Corporate Gift Sarees: A Bulk Buying Guide for Businesses and Events</a></h5>
+                <p class="text-muted small mb-2">6 min read &middot; 20 Jan 2026</p>
+                <p class="text-muted">Companies often gift sarees to female employees or clients during festivals or milestone events. Buying in bulk from Kan…</p>
+                <a href="/blog/corporate-gift-sarees-bulk-buying-guide/" class="btn btn-sm btn-outline-primary">Read More</a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-md-6 blog-card"
+               data-cat="Shopping"
+               data-title="gift saree buying guide: choosing a kanchipuram silk saree as a present"
+               data-keywords="gift saree guide saree as a gift kanchipuram saree gift ideas"
+               data-slug="gift-saree-buying-guide-kanchipuram">
+            <div class="card h-100 shadow-sm">
+              <img src="https://images.unsplash.com/photo-1610030182451-fbf6bd8b4a4a?w=1200" alt="Gift-wrapped silk saree box" class="card-img-top" loading="lazy" style="height:200px;object-fit:cover">
+              <div class="card-body">
+                <span class="badge bg-secondary mb-2">Shopping</span>
+                <h5><a href="/blog/gift-saree-buying-guide-kanchipuram/" class="text-decoration-none text-dark">Gift Saree Buying Guide: Choosing a Kanchipuram Silk Saree as a Present</a></h5>
+                <p class="text-muted small mb-2">7 min read &middot; 19 Jan 2026</p>
+                <p class="text-muted">Buying a saree as a gift is trickier than buying one for yourself — you&#39;re guessing at someone else&#39;s taste, size prefer…</p>
+                <a href="/blog/gift-saree-buying-guide-kanchipuram/" class="btn btn-sm btn-outline-primary">Read More</a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-md-6 blog-card"
+               data-cat="Tourism"
+               data-title="best time to visit kanchipuram: weather, crowds and planning tips"
+               data-keywords="best time visit kanchipuram kanchipuram weather when to plan kanchipuram trip"
+               data-slug="best-time-to-visit-kanchipuram">
+            <div class="card h-100 shadow-sm">
+              <img src="https://images.unsplash.com/photo-1601921804430-ff3c40c5e63e?w=1200" alt="Clear skies over a South Indian temple town" class="card-img-top" loading="lazy" style="height:200px;object-fit:cover">
+              <div class="card-body">
+                <span class="badge bg-secondary mb-2">Tourism</span>
+                <h5><a href="/blog/best-time-to-visit-kanchipuram/" class="text-decoration-none text-dark">Best Time to Visit Kanchipuram: Weather, Crowds and Planning Tips</a></h5>
+                <p class="text-muted small mb-2">6 min read &middot; 18 Jan 2026</p>
+                <p class="text-muted">Kanchipuram can be visited year-round, but weather, wedding season demand and festival timing all affect how comfortable…</p>
+                <a href="/blog/best-time-to-visit-kanchipuram/" class="btn btn-sm btn-outline-primary">Read More</a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-md-6 blog-card"
+               data-cat="Temple Guide"
+               data-title="festivals of kanchipuram: when to visit for temple celebrations"
+               data-keywords="kanchipuram festivals temple festival travel brahmotsavam kanchipuram"
+               data-slug="festivals-of-kanchipuram-travel-guide">
+            <div class="card h-100 shadow-sm">
+              <img src="https://images.unsplash.com/photo-1604608672516-f1b9b1d37076?w=1200" alt="Temple festival decoration and lights" class="card-img-top" loading="lazy" style="height:200px;object-fit:cover">
+              <div class="card-body">
+                <span class="badge bg-secondary mb-2">Temple Guide</span>
+                <h5><a href="/blog/festivals-of-kanchipuram-travel-guide/" class="text-decoration-none text-dark">Festivals of Kanchipuram: When to Visit for Temple Celebrations</a></h5>
+                <p class="text-muted small mb-2">7 min read &middot; 17 Jan 2026</p>
+                <p class="text-muted">As one of Tamil Nadu&#39;s major temple towns, Kanchipuram hosts several significant temple festivals through the year — eac…</p>
+                <a href="/blog/festivals-of-kanchipuram-travel-guide/" class="btn btn-sm btn-outline-primary">Read More</a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-md-6 blog-card"
+               data-cat="Temple Guide"
+               data-title="temple dress code and etiquette in kanchipuram: what visitors should know"
+               data-keywords="temple dress code india kanchipuram temple etiquette what to wear temple visit"
+               data-slug="temple-dress-code-etiquette-kanchipuram">
+            <div class="card h-100 shadow-sm">
+              <img src="https://images.unsplash.com/photo-1582510003544-4d00b7f74220?w=1200" alt="Temple entrance in South India" class="card-img-top" loading="lazy" style="height:200px;object-fit:cover">
+              <div class="card-body">
+                <span class="badge bg-secondary mb-2">Temple Guide</span>
+                <h5><a href="/blog/temple-dress-code-etiquette-kanchipuram/" class="text-decoration-none text-dark">Temple Dress Code and Etiquette in Kanchipuram: What Visitors Should Know</a></h5>
+                <p class="text-muted small mb-2">6 min read &middot; 16 Jan 2026</p>
+                <p class="text-muted">Visiting temples in a town like Kanchipuram comes with a few dress and behaviour expectations that aren&#39;t always obvious…</p>
+                <a href="/blog/temple-dress-code-etiquette-kanchipuram/" class="btn btn-sm btn-outline-primary">Read More</a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-md-6 blog-card"
+               data-cat="Travel"
+               data-title="mahabalipuram day trip from kanchipuram: is it worth combining?"
+               data-keywords="mahabalipuram from kanchipuram kanchipuram mahabalipuram trip tamil nadu heritage trip"
+               data-slug="mahabalipuram-day-trip-from-kanchipuram">
+            <div class="card h-100 shadow-sm">
+              <img src="https://images.unsplash.com/photo-1596401057633-54c15aab5bde?w=1200" alt="Ancient stone shore temple architecture" class="card-img-top" loading="lazy" style="height:200px;object-fit:cover">
+              <div class="card-body">
+                <span class="badge bg-secondary mb-2">Travel</span>
+                <h5><a href="/blog/mahabalipuram-day-trip-from-kanchipuram/" class="text-decoration-none text-dark">Mahabalipuram Day Trip From Kanchipuram: Is It Worth Combining?</a></h5>
+                <p class="text-muted small mb-2">7 min read &middot; 15 Jan 2026</p>
+                <p class="text-muted">Kanchipuram and Mahabalipuram are often combined into a single South Indian heritage trip. Here&#39;s whether it&#39;s worth doi…</p>
+                <a href="/blog/mahabalipuram-day-trip-from-kanchipuram/" class="btn btn-sm btn-outline-primary">Read More</a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-md-6 blog-card"
+               data-cat="Travel"
+               data-title="getting around kanchipuram: public transport and auto rickshaw guide"
+               data-keywords="kanchipuram transport auto rickshaw kanchipuram how to get around kanchipuram"
+               data-slug="public-transport-auto-rickshaw-guide-kanchipuram">
+            <div class="card h-100 shadow-sm">
+              <img src="https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?w=1200" alt="Auto rickshaw on an Indian street" class="card-img-top" loading="lazy" style="height:200px;object-fit:cover">
+              <div class="card-body">
+                <span class="badge bg-secondary mb-2">Travel</span>
+                <h5><a href="/blog/public-transport-auto-rickshaw-guide-kanchipuram/" class="text-decoration-none text-dark">Getting Around Kanchipuram: Public Transport and Auto Rickshaw Guide</a></h5>
+                <p class="text-muted small mb-2">7 min read &middot; 14 Jan 2026</p>
+                <p class="text-muted">Kanchipuram is compact but spread out enough that walking everywhere isn&#39;t practical. Here&#39;s how most visitors actually…</p>
+                <a href="/blog/public-transport-auto-rickshaw-guide-kanchipuram/" class="btn btn-sm btn-outline-primary">Read More</a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-md-6 blog-card"
+               data-cat="Marriage"
+               data-title="where to buy groom wedding dresses in and around kanchipuram"
+               data-keywords="groom wedding dress veshti angavastram groom outfit kanchipuram wedding shopping for men"
+               data-slug="where-to-buy-groom-wedding-dress-kanchipuram">
+            <div class="card h-100 shadow-sm">
+              <img src="https://images.unsplash.com/photo-1610030181087-540b3b09d4e5?w=1200" alt="Traditional South Indian groom attire" class="card-img-top" loading="lazy" style="height:200px;object-fit:cover">
+              <div class="card-body">
+                <span class="badge bg-secondary mb-2">Marriage</span>
+                <h5><a href="/blog/where-to-buy-groom-wedding-dress-kanchipuram/" class="text-decoration-none text-dark">Where to Buy Groom Wedding Dresses in and Around Kanchipuram</a></h5>
+                <p class="text-muted small mb-2">7 min read &middot; 13 Jan 2026</p>
+                <p class="text-muted">Groom shopping gets far less attention than bridal shopping, but traditional South Indian weddings still call for specif…</p>
+                <a href="/blog/where-to-buy-groom-wedding-dress-kanchipuram/" class="btn btn-sm btn-outline-primary">Read More</a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-md-6 blog-card"
+               data-cat="Marriage"
+               data-title="bridal jewellery buying guide: what to know before shopping in kanchipuram"
+               data-keywords="bridal jewellery kanchipuram temple jewellery gold hallmark wedding jewellery guide"
+               data-slug="bridal-jewellery-buying-guide-kanchipuram">
+            <div class="card h-100 shadow-sm">
+              <img src="https://images.unsplash.com/photo-1611652022419-a9419f74343d?w=1200" alt="South Indian temple jewellery set" class="card-img-top" loading="lazy" style="height:200px;object-fit:cover">
+              <div class="card-body">
+                <span class="badge bg-secondary mb-2">Marriage</span>
+                <h5><a href="/blog/bridal-jewellery-buying-guide-kanchipuram/" class="text-decoration-none text-dark">Bridal Jewellery Buying Guide: What to Know Before Shopping in Kanchipuram</a></h5>
+                <p class="text-muted small mb-2">8 min read &middot; 12 Jan 2026</p>
+                <p class="text-muted">South Indian bridal jewellery, especially temple jewellery, pairs naturally with Kanchipuram silk. Here&#39;s what to check…</p>
+                <a href="/blog/bridal-jewellery-buying-guide-kanchipuram/" class="btn btn-sm btn-outline-primary">Read More</a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-md-6 blog-card"
+               data-cat="Marriage"
+               data-title="wedding saree buying guide: how to choose the right kanchipuram silk for your big day"
+               data-keywords="wedding saree guide bridal kanchipuram saree muhurtham saree reception saree"
+               data-slug="wedding-saree-buying-guide-kanchipuram">
+            <div class="card h-100 shadow-sm">
+              <img src="https://images.unsplash.com/photo-1583391733956-6c78276477e2?w=1200" alt="Bridal Kanchipuram silk saree with heavy zari border" class="card-img-top" loading="lazy" style="height:200px;object-fit:cover">
+              <div class="card-body">
+                <span class="badge bg-secondary mb-2">Marriage</span>
+                <h5><a href="/blog/wedding-saree-buying-guide-kanchipuram/" class="text-decoration-none text-dark">Wedding Saree Buying Guide: How to Choose the Right Kanchipuram Silk for Your Big Day</a></h5>
+                <p class="text-muted small mb-2">9 min read &middot; 11 Jan 2026</p>
+                <p class="text-muted">A wedding involves several different functions, and each one calls for a different kind of saree. Here&#39;s how to plan you…</p>
+                <a href="/blog/wedding-saree-buying-guide-kanchipuram/" class="btn btn-sm btn-outline-primary">Read More</a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-md-6 blog-card"
+               data-cat="Food"
+               data-title="where to eat in kanchipuram: vegetarian, non-vegetarian and street food guide"
+               data-keywords="kanchipuram food where to eat kanchipuram kanchipuram restaurants veg nonveg"
+               data-slug="where-to-eat-in-kanchipuram-veg-nonveg-street-food-guide">
+            <div class="card h-100 shadow-sm">
+              <img src="https://images.unsplash.com/photo-1589302168068-964664d93dc0?w=1200" alt="South Indian thali meal on banana leaf" class="card-img-top" loading="lazy" style="height:200px;object-fit:cover">
+              <div class="card-body">
+                <span class="badge bg-secondary mb-2">Food</span>
+                <h5><a href="/blog/where-to-eat-in-kanchipuram-veg-nonveg-street-food-guide/" class="text-decoration-none text-dark">Where to Eat in Kanchipuram: Vegetarian, Non-Vegetarian and Street Food Guide</a></h5>
+                <p class="text-muted small mb-2">8 min read &middot; 10 Jan 2026</p>
+                <p class="text-muted">Kanchipuram&#39;s food culture leans heavily vegetarian thanks to its temple traditions, but there&#39;s still plenty to try, fr…</p>
+                <a href="/blog/where-to-eat-in-kanchipuram-veg-nonveg-street-food-guide/" class="btn btn-sm btn-outline-primary">Read More</a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-md-6 blog-card"
+               data-cat="Hotels"
+               data-title="where to stay in kanchipuram: a practical hotel guide"
+               data-keywords="kanchipuram hotels where to stay kanchipuram budget hotels kanchipuram"
+               data-slug="where-to-stay-in-kanchipuram-hotel-guide">
+            <div class="card h-100 shadow-sm">
+              <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1200" alt="Hotel room interior" class="card-img-top" loading="lazy" style="height:200px;object-fit:cover">
+              <div class="card-body">
+                <span class="badge bg-secondary mb-2">Hotels</span>
+                <h5><a href="/blog/where-to-stay-in-kanchipuram-hotel-guide/" class="text-decoration-none text-dark">Where to Stay in Kanchipuram: A Practical Hotel Guide</a></h5>
+                <p class="text-muted small mb-2">7 min read &middot; 9 Jan 2026</p>
+                <p class="text-muted">Most visitors treat Kanchipuram as a day trip from Chennai, but staying overnight opens up a much more relaxed pace for…</p>
+                <a href="/blog/where-to-stay-in-kanchipuram-hotel-guide/" class="btn btn-sm btn-outline-primary">Read More</a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-md-6 blog-card"
+               data-cat="Tourism"
+               data-title="complete tourist guide to kanchipuram: a practical one-day itinerary"
+               data-keywords="kanchipuram itinerary one day kanchipuram trip kanchipuram tourist guide"
+               data-slug="complete-tourist-guide-to-kanchipuram-one-day-itinerary">
+            <div class="card h-100 shadow-sm">
+              <img src="https://images.unsplash.com/photo-1582510003544-4d00b7f74220?w=1200" alt="South Indian temple gopuram tower" class="card-img-top" loading="lazy" style="height:200px;object-fit:cover">
+              <div class="card-body">
+                <span class="badge bg-secondary mb-2">Tourism</span>
+                <h5><a href="/blog/complete-tourist-guide-to-kanchipuram-one-day-itinerary/" class="text-decoration-none text-dark">Complete Tourist Guide to Kanchipuram: A Practical One-Day Itinerary</a></h5>
+                <p class="text-muted small mb-2">9 min read &middot; 8 Jan 2026</p>
+                <p class="text-muted">Kanchipuram is compact enough to cover its major highlights in a single well-planned day, but the town rewards those who…</p>
+                <a href="/blog/complete-tourist-guide-to-kanchipuram-one-day-itinerary/" class="btn btn-sm btn-outline-primary">Read More</a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-md-6 blog-card"
+               data-cat="History"
+               data-title="the history of kanchipuram silk weaving: from temple town to silk capital"
+               data-keywords="kanchipuram silk history handloom weaving tamil nadu silk weaving tradition"
+               data-slug="history-of-kanchipuram-silk-weaving">
+            <div class="card h-100 shadow-sm">
+              <img src="https://images.unsplash.com/photo-1595341888016-a392ef81b7de?w=1200" alt="Traditional handloom weaving setup" class="card-img-top" loading="lazy" style="height:200px;object-fit:cover">
+              <div class="card-body">
+                <span class="badge bg-secondary mb-2">History</span>
+                <h5><a href="/blog/history-of-kanchipuram-silk-weaving/" class="text-decoration-none text-dark">The History of Kanchipuram Silk Weaving: From Temple Town to Silk Capital</a></h5>
+                <p class="text-muted small mb-2">9 min read &middot; 7 Jan 2026</p>
+                <p class="text-muted">Long before it became a shopping destination, Kanchipuram was — and still is — a living tradition of temple architecture…</p>
+                <a href="/blog/history-of-kanchipuram-silk-weaving/" class="btn btn-sm btn-outline-primary">Read More</a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-md-6 blog-card"
+               data-cat="Buying Guide"
+               data-title="original vs duplicate: how to identify a genuine kanchipuram saree using silk mark and gi tag"
+               data-keywords="silk mark gi tag kanchipuram original vs duplicate saree fake silk saree"
+               data-slug="silk-mark-gi-tag-identify-original-vs-duplicate-kanchipuram-saree">
+            <div class="card h-100 shadow-sm">
+              <img src="https://images.unsplash.com/photo-1610030182451-fbf6bd8b4a4a?w=1200" alt="Close-up of silk saree zari border weaving" class="card-img-top" loading="lazy" style="height:200px;object-fit:cover">
+              <div class="card-body">
+                <span class="badge bg-secondary mb-2">Buying Guide</span>
+                <h5><a href="/blog/silk-mark-gi-tag-identify-original-vs-duplicate-kanchipuram-saree/" class="text-decoration-none text-dark">Original vs Duplicate: How to Identify a Genuine Kanchipuram Saree Using Silk Mark and GI Tag</a></h5>
+                <p class="text-muted small mb-2">8 min read &middot; 6 Jan 2026</p>
+                <p class="text-muted">Two official markers can help protect you from duplicates: the Silk Mark label and the Geographical Indication (GI) tag…</p>
+                <a href="/blog/silk-mark-gi-tag-identify-original-vs-duplicate-kanchipuram-saree/" class="btn btn-sm btn-outline-primary">Read More</a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-md-6 blog-card"
+               data-cat="Buying Guide"
+               data-title="complete guide to buying original kanchipuram silk sarees"
+               data-keywords="kanchipuram silk saree buying guide silk saree shopping kanchipuram sarees price"
+               data-slug="complete-guide-buying-original-kanchipuram-silk-sarees">
+            <div class="card h-100 shadow-sm">
+              <img src="https://images.unsplash.com/photo-1610189844777-4e3b6dd8b4a4?w=1200" alt="Kanchipuram silk sarees displayed in a shop" class="card-img-top" loading="lazy" style="height:200px;object-fit:cover">
+              <div class="card-body">
+                <span class="badge bg-secondary mb-2">Buying Guide</span>
+                <h5><a href="/blog/complete-guide-buying-original-kanchipuram-silk-sarees/" class="text-decoration-none text-dark">Complete Guide to Buying Original Kanchipuram Silk Sarees</a></h5>
+                <p class="text-muted small mb-2">16 min read &middot; 5 Jan 2026</p>
+                <p class="text-muted">Kanchipuram is one of India&#39;s most famous silk-weaving towns, and buying your first saree here can feel overwhelming. Th…</p>
+                <a href="/blog/complete-guide-buying-original-kanchipuram-silk-sarees/" class="btn btn-sm btn-outline-primary">Read More</a>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+        <p id="blogNoResults" class="text-muted text-center py-4" style="display:none">No articles match your search.</p>
+      </div>
+
+      <div class="col-lg-4">
+        <div class="card shadow-sm mb-4"><div class="card-body">
+          <h6 class="mb-3">Latest Articles</h6>
+          <ul class="list-unstyled small mb-0">
+            
+              
+              <li class="mb-2"><a href="/blog/nearby-tourist-places-around-kanchipuram/" class="text-decoration-none">Nearby Tourist Places Around Kanchipuram: Where to Go Next</a></li>
+              
+            
+              
+              <li class="mb-2"><a href="/blog/shopping-tips-for-foreign-tourists-kanchipuram/" class="text-decoration-none">Shopping Tips for Foreign Tourists Visiting Kanchipuram</a></li>
+              
+            
+              
+              <li class="mb-2"><a href="/blog/wedding-shopping-checklist-kanchipuram/" class="text-decoration-none">The Complete Wedding Shopping Checklist for a Kanchipuram Trip</a></li>
+              
+            
+              
+              <li class="mb-2"><a href="/blog/photography-spots-in-kanchipuram/" class="text-decoration-none">Best Photography Spots in Kanchipuram</a></li>
+              
+            
+              
+              <li class="mb-2"><a href="/blog/kanchipuram-railway-bus-stand-guide/" class="text-decoration-none">Kanchipuram Railway Station and Bus Stand Guide</a></li>
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+          </ul>
+        </div></div>
+
+        <div class="card shadow-sm mb-4"><div class="card-body">
+          <h6 class="mb-3">Editor's Picks</h6>
+          <ul class="list-unstyled small mb-0">
+            
+              
+              <li class="mb-2"><a href="/blog/nearby-tourist-places-around-kanchipuram/" class="text-decoration-none">Nearby Tourist Places Around Kanchipuram: Where to Go Next</a></li>
+              
+            
+              
+            
+              
+              <li class="mb-2"><a href="/blog/wedding-shopping-checklist-kanchipuram/" class="text-decoration-none">The Complete Wedding Shopping Checklist for a Kanchipuram Trip</a></li>
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+              <li class="mb-2"><a href="/blog/common-tourist-mistakes-to-avoid-in-kanchipuram/" class="text-decoration-none">Common Tourist Mistakes to Avoid in Kanchipuram</a></li>
+              
+            
+              
+            
+              
+            
+              
+            
+              
+              <li class="mb-2"><a href="/blog/how-much-does-kanchipuram-saree-cost/" class="text-decoration-none">How Much Does a Kanchipuram Saree Really Cost? A Price Breakdown</a></li>
+              
+            
+              
+              <li class="mb-2"><a href="/blog/budget-vs-luxury-kanchipuram-saree-shopping-guide/" class="text-decoration-none">Budget vs Luxury Kanchipuram Saree Shopping: How to Shop at Any Price Point</a></li>
+              
+            
+              
+            
+              
+            
+              
+              <li class="mb-2"><a href="/blog/best-time-to-visit-kanchipuram/" class="text-decoration-none">Best Time to Visit Kanchipuram: Weather, Crowds and Planning Tips</a></li>
+              
+            
+              
+            
+              
+            
+              
+              <li class="mb-2"><a href="/blog/mahabalipuram-day-trip-from-kanchipuram/" class="text-decoration-none">Mahabalipuram Day Trip From Kanchipuram: Is It Worth Combining?</a></li>
+              
+            
+              
+            
+              
+            
+              
+            
+              
+              <li class="mb-2"><a href="/blog/wedding-saree-buying-guide-kanchipuram/" class="text-decoration-none">Wedding Saree Buying Guide: How to Choose the Right Kanchipuram Silk for Your Big Day</a></li>
+              
+            
+              
+              <li class="mb-2"><a href="/blog/where-to-eat-in-kanchipuram-veg-nonveg-street-food-guide/" class="text-decoration-none">Where to Eat in Kanchipuram: Vegetarian, Non-Vegetarian and Street Food Guide</a></li>
+              
+            
+              
+            
+              
+              <li class="mb-2"><a href="/blog/complete-tourist-guide-to-kanchipuram-one-day-itinerary/" class="text-decoration-none">Complete Tourist Guide to Kanchipuram: A Practical One-Day Itinerary</a></li>
+              
+            
+              
+            
+              
+              <li class="mb-2"><a href="/blog/silk-mark-gi-tag-identify-original-vs-duplicate-kanchipuram-saree/" class="text-decoration-none">Original vs Duplicate: How to Identify a Genuine Kanchipuram Saree Using Silk Mark and GI Tag</a></li>
+              
+            
+              
+              <li class="mb-2"><a href="/blog/complete-guide-buying-original-kanchipuram-silk-sarees/" class="text-decoration-none">Complete Guide to Buying Original Kanchipuram Silk Sarees</a></li>
+              
+            
+          </ul>
+        </div></div>
+
+        <div class="card shadow-sm"><div class="card-body">
+          <h6 class="mb-3">Categories</h6>
+          
+          <button type="button" class="btn badge bg-light text-dark border me-1 mb-1 sidebar-cat-btn" data-cat="Tourism">Tourism (6)</button>
+          
+          <button type="button" class="btn badge bg-light text-dark border me-1 mb-1 sidebar-cat-btn" data-cat="Shopping">Shopping (5)</button>
+          
+          <button type="button" class="btn badge bg-light text-dark border me-1 mb-1 sidebar-cat-btn" data-cat="Marriage">Marriage (4)</button>
+          
+          <button type="button" class="btn badge bg-light text-dark border me-1 mb-1 sidebar-cat-btn" data-cat="Travel">Travel (5)</button>
+          
+          <button type="button" class="btn badge bg-light text-dark border me-1 mb-1 sidebar-cat-btn" data-cat="Food">Food (2)</button>
+          
+          <button type="button" class="btn badge bg-light text-dark border me-1 mb-1 sidebar-cat-btn" data-cat="History">History (2)</button>
+          
+          <button type="button" class="btn badge bg-light text-dark border me-1 mb-1 sidebar-cat-btn" data-cat="Buying Guide">Buying Guide (3)</button>
+          
+          <button type="button" class="btn badge bg-light text-dark border me-1 mb-1 sidebar-cat-btn" data-cat="Temple Guide">Temple Guide (2)</button>
+          
+          <button type="button" class="btn badge bg-light text-dark border me-1 mb-1 sidebar-cat-btn" data-cat="Hotels">Hotels (1)</button>
+          
+        </div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script src="/js/modules/blogFilter.js"></script>
+
+</main>
+
+<!-- ============ Footer ============ -->
+<footer class="bg-dark text-light pt-5 pb-4 mt-5">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-md-4">
+        <h5 class="text-warning"><i class="bi bi-building"></i> Kanchi360</h5>
+        <p class="text-secondary small">Your local guide to Kanchipuram — temples, shopping, hotels and services in one place.</p>
+      </div>
+      <div class="col-md-4">
+        <h6>Quick Links</h6>
+        <ul class="list-unstyled small">
+          <li><a href="/business/" class="link-light link-opacity-75">Business Directory</a></li>
+          <li><a href="/tourist-places/" class="link-light link-opacity-75">Temples &amp; Places</a></li>
+          <li><a href="/blog/" class="link-light link-opacity-75">Blog</a></li>
+          <li><a href="/#emergencyNumbers" class="link-light link-opacity-75">Emergency Numbers</a></li>
+        </ul>
+      </div>
+      <div class="col-md-4">
+        <h6>List Your Business</h6>
+        <p class="text-secondary small">Free basic listings, premium placements available.</p>
+        <a href="/#contactUs" class="btn btn-sm btn-warning text-dark">Get Listed</a>
+      </div>
+    </div>
+    <hr class="border-secondary">
+    <p class="text-center small">
+      <a href="/privacy-policy/" class="link-light link-opacity-75 me-2">Privacy Policy</a>&middot;
+      <a href="/terms-of-use/" class="link-light link-opacity-75 mx-2">Terms of Use</a>&middot;
+      <a href="/terms-and-conditions/" class="link-light link-opacity-75 mx-2">Terms &amp; Conditions</a>&middot;
+      <a href="/infringement-policy/" class="link-light link-opacity-75 ms-2">Infringement Policy</a>
+    </p>
+    <p class="text-secondary small">
+      <strong class="text-light">Advertise on Kanchi360 — Get Seen by More Local Customers.</strong>
+      Kanchipuram businesses grow faster when the right customers can find them at the right moment.
+      Kanchi360 puts your listing in front of people already searching in your category and area, with
+      plans covering higher search placement, an online catalogue, a verified badge and homepage banner
+      spots. <a href="/business-plans/" class="link-warning">Compare plans</a> or
+      <a href="/advertise-with-us/" class="link-warning">learn how it works</a> to get your business listed.
+    </p>
+    <p class="text-center text-secondary small mb-0">&copy; Kanchi360. Built for Kanchipuram.</p>
+  </div>
+</footer>
+
+<!-- ============ Floating dark-mode toggle (desktop) - back-to-top is added by JS ============ -->
+<button id="darkToggle" class="btn btn-warning">🌙</button>
+
+<!-- ============ Mobile bottom nav ============ -->
+<nav id="bottomNav">
+  <a href="/"><i class="bi bi-house"></i>Home</a>
+  <a href="/business/"><i class="bi bi-shop"></i>Business</a>
+  <a href="/search/"><i class="bi bi-search"></i>Search</a>
+  <a href="#" id="bottomNavWishlist"><i class="bi bi-heart"></i>Favorites</a>
+  <a href="#" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu"><i class="bi bi-list"></i>Menu</a>
+</nav>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- components first (other modules depend on these) -->
+<script src="/js/components/toast.js"></script>
+<script src="/js/components/modal.js"></script>
+
+<!-- feature modules: each one is independent, safe to edit without touching the rest -->
+<script src="/js/modules/theme.js"></script>
+<script src="/js/modules/booking.js"></script>
+<script src="/js/modules/wishlist.js"></script>
+<script src="/js/modules/counters.js"></script>
+<script src="/js/modules/templeSearch.js"></script>
+<script src="/js/modules/contactForm.js"></script>
+<script src="/js/modules/backToTop.js"></script>
+<script src="/js/modules/scrollReveal.js"></script>
+
+<!-- entry point, loaded last -->
+<script src="https://cdn.jsdelivr.net/npm/minisearch@7.2.0/dist/umd/index.min.js"></script>
+<script src="/js/search.js"></script>
+<script src="/js/core/app.js"></script>
+
+<!-- Google Translate, restricted to our supported languages.
+     TO ADD/REMOVE A LANGUAGE: edit the includedLanguages string below (two places,
+     desktop + mobile widget) using ISO codes, comma-separated, no spaces. -->
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({
+    pageLanguage: 'en',
+    includedLanguages: 'en,ta,hi,te,kn,fr,ml,bn,mr,gu',
+    layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+  }, 'google_translate_element');
+  new google.translate.TranslateElement({
+    pageLanguage: 'en',
+    includedLanguages: 'en,ta,hi,te,kn,fr,ml,bn,mr,gu',
+    layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+  }, 'google_translate_element_mobile');
+}
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+</html>

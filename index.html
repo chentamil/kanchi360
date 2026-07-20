@@ -1,1 +1,1245 @@
- <h3>Hello world</h3> 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Home | Kanchi360</title>
+<meta name="description" content="Kanchipuram business directory, blog, temple guide and marketplace">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+<style>
+  :root {
+    --brand-primary: #B8541D;
+    --brand-primary-dark: #8F3F14;
+    --brand-accent: #D4A017;
+    --brand-ink: #2A1E14;
+    --radius-lg: 16px;
+    --radius-md: 10px;
+  }
+  body { font-family: "Segoe UI", system-ui, -apple-system, sans-serif; color: var(--brand-ink); }
+  h1, h2, h3, h4, h5 { font-weight: 700; }
+  section { scroll-margin-top: 84px; }
+
+  .navbar-brand { color: var(--brand-accent) !important; }
+  .btn-primary { background: var(--brand-primary); border-color: var(--brand-primary); }
+  .btn-primary:hover { background: var(--brand-primary-dark); border-color: var(--brand-primary-dark); }
+  .btn-outline-primary { color: var(--brand-primary); border-color: var(--brand-primary); }
+  .btn-outline-primary:hover { background: var(--brand-primary); border-color: var(--brand-primary); }
+  .text-primary { color: var(--brand-primary) !important; }
+  .badge.bg-warning { background: var(--brand-accent) !important; }
+
+  .card { border-radius: var(--radius-lg); border: none; transition: transform .2s ease, box-shadow .2s ease; }
+  .card:hover { transform: translateY(-4px); box-shadow: 0 12px 24px rgba(0,0,0,.12) !important; }
+  .card-img-top { border-radius: var(--radius-lg) var(--radius-lg) 0 0; }
+  .btn { border-radius: var(--radius-md); min-height: 44px; }
+  .btn-sm { min-height: 36px; }
+
+  /* dark mode */
+  body.dark-mode { background:#121212; color:#e8e0d8; }
+  body.dark-mode .card { background:#1e1e1e; color:#e8e0d8; }
+  body.dark-mode .bg-light { background:#181818 !important; }
+  body.dark-mode .text-muted { color:#a8a098 !important; }
+
+  /* scroll reveal */
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; }
+  .reveal.revealed { opacity: 1; transform: none; }
+
+  /* dark-mode toggle (static, desktop only) */
+  #darkToggle {
+    position: fixed; right: 20px; bottom: 20px; z-index: 1050; border-radius: 50%;
+    width: 48px; height: 48px; display: none; align-items: center; justify-content: center;
+  }
+  @media (min-width: 768px) { #darkToggle { display: flex; } }
+
+  /* back-to-top: created by js/modules/backToTop.js, styled here via .back-top/.show */
+  .back-top {
+    position: fixed; right: 20px; bottom: 80px; z-index: 1050; border-radius: 50%;
+    width: 48px; height: 48px; display: none; align-items: center; justify-content: center;
+    background: var(--brand-primary); color: #fff; border: none; box-shadow: 0 4px 12px rgba(0,0,0,.2);
+  }
+  .back-top.show { display: flex; }
+  @media (max-width: 767.98px) { .back-top { display: none !important; } }
+
+  /* mobile bottom nav (native-app style) */
+  #bottomNav {
+    display: flex; position: fixed; bottom: 0; left: 0; right: 0; z-index: 1040;
+    background: #fff; border-top: 1px solid rgba(0,0,0,.08); box-shadow: 0 -2px 10px rgba(0,0,0,.08);
+  }
+  #bottomNav a {
+    flex: 1; text-align: center; padding: 8px 4px; font-size: .7rem; color: #6b6b6b; text-decoration: none;
+  }
+  #bottomNav a i { display: block; font-size: 1.25rem; margin-bottom: 2px; }
+  #bottomNav a.active { color: var(--brand-primary); }
+  body.dark-mode #bottomNav { background:#1e1e1e; border-color:#333; }
+  @media (min-width: 768px) { #bottomNav { display: none; } }
+  main { padding-bottom: 0; }
+  @media (max-width: 767.98px) { main { padding-bottom: 64px; } }
+
+  /* google translate: hide google chrome, keep just the dropdown */
+  .goog-te-banner-frame { display: none !important; }
+  body { top: 0 !important; }
+  #google_translate_element { display: inline-block; }
+  #google_translate_element .goog-te-gadget { font-size: 0; }
+  #google_translate_element .goog-te-gadget-simple {
+    border-radius: var(--radius-md); border: 1px solid rgba(255,255,255,.3); padding: 4px 8px; background: transparent;
+  }
+  #google_translate_element .goog-te-gadget-simple span { color: #fff; font-size: .8rem; }
+
+  /* skeleton shimmer (used on search page while MiniSearch loads) */
+  .skeleton { background: linear-gradient(90deg, #eee 25%, #f5f5f5 50%, #eee 75%); background-size: 200% 100%; animation: shimmer 1.2s infinite; border-radius: var(--radius-md); }
+
+  /* blog sidebar category badges, now clickable buttons but still badge-sized */
+  .sidebar-cat-btn { font-size: .8rem; padding: .35em .65em; min-height: unset; }
+  @keyframes shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
+</style>
+</head>
+<body>
+
+<!-- ============ Desktop navbar (with integrated search) ============ -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="/"><i class="bi bi-building"></i> Kanchi360</a>
+
+    <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- desktop-only inline menu + search -->
+    <div class="d-none d-lg-flex align-items-center flex-grow-1 justify-content-end">
+      <ul class="navbar-nav me-3">
+        <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="/business/">Business</a></li>
+        <li class="nav-item"><a class="nav-link" href="/tourist-places/">Temples</a></li>
+        <li class="nav-item"><a class="nav-link" href="/#shoppingZone">Shopping</a></li>
+        <li class="nav-item"><a class="nav-link" href="/#festivalCalendar">Festivals</a></li>
+        <li class="nav-item"><a class="nav-link" href="/#reviews">Reviews</a></li>
+        <li class="nav-item"><a class="nav-link" href="/blog/">Blog</a></li>
+        <li class="nav-item"><a class="nav-link" href="/#faq">FAQ</a></li>
+        <li class="nav-item"><a class="nav-link" href="/#contactUs">Contact</a></li>
+        <li class="nav-item"><a class="nav-link text-warning" href="/advertise-with-us/">Advertise</a></li>
+      </ul>
+      <form action="/search/" method="get" class="position-relative me-3" role="search"
+            data-search-widget data-search-navigate>
+        <input type="search" name="q" data-search-box autocomplete="off"
+               class="form-control form-control-sm" style="width:180px" placeholder="Search...">
+        <div data-search-suggestions class="list-group position-absolute w-100 shadow" style="z-index:2000; display:none;"></div>
+      </form>
+      <div id="google_translate_element"></div>
+    </div>
+  </div>
+</nav>
+
+<!-- ============ Mobile offcanvas drawer menu ============ -->
+<div class="offcanvas offcanvas-start" tabindex="-1" id="mobileMenu">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title"><i class="bi bi-building"></i> Kanchi360</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+  </div>
+  <div class="offcanvas-body d-flex flex-column">
+    <form action="/search/" method="get" class="position-relative mb-3" role="search"
+          data-search-widget data-search-navigate>
+      <input type="search" name="q" data-search-box autocomplete="off"
+             class="form-control" placeholder="Search shops, hotels, temples...">
+      <div data-search-suggestions class="list-group position-absolute w-100 shadow" style="z-index:2000; display:none;"></div>
+    </form>
+    <ul class="nav nav-pills flex-column gap-1">
+      <li class="nav-item"><a class="nav-link" href="/"><i class="bi bi-house me-2"></i>Home</a></li>
+      <li class="nav-item"><a class="nav-link" href="/business/"><i class="bi bi-shop me-2"></i>Business Directory</a></li>
+      <li class="nav-item"><a class="nav-link" href="/tourist-places/"><i class="bi bi-bank me-2"></i>Temples</a></li>
+      <li class="nav-item"><a class="nav-link" href="/#shoppingZone"><i class="bi bi-bag me-2"></i>Shopping</a></li>
+      <li class="nav-item"><a class="nav-link" href="/#festivalCalendar"><i class="bi bi-calendar-event me-2"></i>Festivals</a></li>
+      <li class="nav-item"><a class="nav-link" href="/#emergencyNumbers"><i class="bi bi-telephone me-2"></i>Emergency Numbers</a></li>
+      <li class="nav-item"><a class="nav-link" href="/#reviews"><i class="bi bi-star me-2"></i>Reviews</a></li>
+      <li class="nav-item"><a class="nav-link" href="/blog/"><i class="bi bi-journal-text me-2"></i>Blog</a></li>
+      <li class="nav-item"><a class="nav-link" href="/#faq"><i class="bi bi-question-circle me-2"></i>FAQ</a></li>
+      <li class="nav-item"><a class="nav-link" href="/#contactUs"><i class="bi bi-envelope me-2"></i>Contact</a></li>
+      <li class="nav-item"><a class="nav-link text-warning" href="/advertise-with-us/"><i class="bi bi-megaphone me-2"></i>Advertise With Us</a></li>
+    </ul>
+    <div class="mt-auto pt-3" id="google_translate_element_mobile"></div>
+  </div>
+</div>
+
+<main>
+<section class="py-5 bg-light">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-6">
+        <span class="badge bg-warning text-dark mb-3">Temple Tourism &bull; Shopping &bull; Pilgrimage</span>
+        <h1 class="display-4 fw-bold">Discover Kanchipuram</h1>
+        <p class="lead">Plan your complete spiritual journey with temples, shopping, hotels, restaurants, cabs and local experiences.</p>
+        <div class="mt-4">
+          <a href="#templeExplorer" class="btn btn-primary btn-lg me-2">Explore Temples</a>
+          <a href="/business/" class="btn btn-outline-dark btn-lg">Browse Business</a>
+        </div>
+      </div>
+      <div class="col-lg-6 text-center">
+        <img src="https://placehold.co/700x450?text=Kanchipuram" class="img-fluid rounded shadow" alt="Kanchipuram">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Demo only: no itinerary-generation data exists yet. UI kept from original,
+     wiring point left for js/modules/tripPlanner.js when a real engine exists. -->
+<section class="py-5">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2>Plan Your Visit</h2>
+      <p>Generate your own itinerary in seconds.</p>
+    </div>
+    <div class="card shadow border-0">
+      <div class="card-body">
+        <form id="tripPlannerForm" class="row g-3">
+          <div class="col-md-3">
+            <label class="form-label">Arrival Date</label>
+            <input type="date" class="form-control">
+          </div>
+          <div class="col-md-2">
+            <label class="form-label">People</label>
+            <select class="form-select">
+              <option>1</option><option>2</option><option>4</option><option>6+</option>
+            </select>
+          </div>
+          <div class="col-md-2">
+            <label class="form-label">Duration</label>
+            <select class="form-select">
+              <option>1 Day</option><option>2 Days</option><option>3 Days</option>
+            </select>
+          </div>
+          <div class="col-md-2">
+            <label class="form-label">Budget</label>
+            <select class="form-select">
+              <option>Budget</option><option>Standard</option><option>Luxury</option>
+            </select>
+          </div>
+          <div class="col-md-3 d-grid">
+            <label class="form-label">&nbsp;</label>
+            <button type="submit" class="btn btn-primary">Generate Demo Plan</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-5 bg-light">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-md-3">
+        <div class="card h-100 text-center shadow-sm">
+          <div class="card-body">
+            <i class="bi bi-bank fs-1 text-primary"></i>
+            <h5 class="mt-3">Temple Guide</h5>
+            <p>Complete temple information.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card h-100 text-center shadow-sm">
+          <div class="card-body">
+            <i class="bi bi-headphones fs-1 text-success"></i>
+            <h5 class="mt-3">Audio Guide</h5>
+            <p>Listen while exploring.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card h-100 text-center shadow-sm">
+          <div class="card-body">
+            <i class="bi bi-shop fs-1 text-danger"></i>
+            <h5 class="mt-3">Shopping</h5>
+            <p>Silk &amp; Handloom Stores.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card h-100 text-center shadow-sm">
+          <div class="card-body">
+            <i class="bi bi-taxi-front fs-1 text-warning"></i>
+            <h5 class="mt-3">Cab Booking</h5>
+            <p>Local travel assistance.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-5" id="templeExplorer">
+  <div class="container">
+    <div class="d-flex justify-content-between mb-4">
+      <h2>Popular Temples</h2>
+      <a href="/tourist-places/" class="btn btn-outline-primary">View All</a>
+    </div>
+    <input id="templeSearchBox" type="text" class="form-control mb-4" placeholder="Search temples...">
+    <div class="row g-4" id="templeGrid">
+      
+        
+        <div class="col-lg-4 temple-card">
+          <div class="card shadow h-100">
+            <img src="https://placehold.co/600x400?text=Kanchi%20Kudil" class="card-img-top">
+            <div class="card-body">
+              <h5>Kanchi Kudil</h5>
+              <p>Traditional heritage house.</p>
+              <div class="mb-3">
+                <span class="badge bg-secondary">Museum</span>
+              </div>
+              <a href="/tourist-places/kanchi-kudil/" class="btn btn-primary w-100">View Details</a>
+            </div>
+          </div>
+        </div>
+        
+      
+        
+        <div class="col-lg-4 temple-card">
+          <div class="card shadow h-100">
+            <img src="https://placehold.co/600x400?text=Kamakshi%20Amman%20Temple" class="card-img-top">
+            <div class="card-body">
+              <h5>Kamakshi Amman Temple</h5>
+              <p>Famous Shakti temple.</p>
+              <div class="mb-3">
+                <span class="badge bg-secondary">Temple</span>
+              </div>
+              <a href="/tourist-places/kamakshi-amman-temple/" class="btn btn-primary w-100">View Details</a>
+            </div>
+          </div>
+        </div>
+        
+      
+        
+        <div class="col-lg-4 temple-card">
+          <div class="card shadow h-100">
+            <img src="https://placehold.co/600x400?text=Ekambareswarar%20Temple" class="card-img-top">
+            <div class="card-body">
+              <h5>Ekambareswarar Temple</h5>
+              <p>Historic Shiva temple.</p>
+              <div class="mb-3">
+                <span class="badge bg-secondary">Temple</span>
+              </div>
+              <a href="/tourist-places/ekambareswarar-temple/" class="btn btn-primary w-100">View Details</a>
+            </div>
+          </div>
+        </div>
+        
+      
+        
+        <div class="col-lg-4 temple-card">
+          <div class="card shadow h-100">
+            <img src="https://placehold.co/600x400?text=Varadharaja%20Perumal%20Temple" class="card-img-top">
+            <div class="card-body">
+              <h5>Varadharaja Perumal Temple</h5>
+              <p>Famous Vishnu temple.</p>
+              <div class="mb-3">
+                <span class="badge bg-secondary">Temple</span>
+              </div>
+              <a href="/tourist-places/varadharaja-perumal-temple/" class="btn btn-primary w-100">View Details</a>
+            </div>
+          </div>
+        </div>
+        
+      
+        
+        <div class="col-lg-4 temple-card">
+          <div class="card shadow h-100">
+            <img src="https://placehold.co/600x400?text=Kailasanathar%20Temple" class="card-img-top">
+            <div class="card-body">
+              <h5>Kailasanathar Temple</h5>
+              <p>Pallava architecture.</p>
+              <div class="mb-3">
+                <span class="badge bg-secondary">Temple</span>
+              </div>
+              <a href="/tourist-places/kailasanathar-temple/" class="btn btn-primary w-100">View Details</a>
+            </div>
+          </div>
+        </div>
+        
+      
+    </div>
+  </div>
+</section>
+
+<section class="py-5 bg-light">
+  <div class="container">
+    <h2 class="text-center mb-5">One Day Itinerary</h2>
+    <div class="row">
+      <div class="col-lg-8 mx-auto">
+        <ul class="list-group shadow">
+          <li class="list-group-item">🕘 09:00 AM - Morning Temple Visit</li>
+          <li class="list-group-item">🍽 Breakfast</li>
+          <li class="list-group-item">🕙 10:30 AM - Second Temple Visit</li>
+          <li class="list-group-item">🍛 Lunch</li>
+          <li class="list-group-item">🛍 Silk Shopping</li>
+          <li class="list-group-item">🕔 Evening Temple Visit</li>
+          <li class="list-group-item">🏨 Hotel Check-in</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-5" id="festivalCalendar">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2>Upcoming Festivals</h2>
+    </div>
+    <div class="row g-4">
+      
+        
+        <div class="col-md-4">
+          <div class="card shadow-sm">
+            <div class="card-body">
+              <h5>Panguni Uthiram</h5>
+              <p>March</p>
+              <p class="text-muted small">Major temple festival celebrated in Kanchipuram.</p>
+            </div>
+          </div>
+        </div>
+        
+      
+        
+        <div class="col-md-4">
+          <div class="card shadow-sm">
+            <div class="card-body">
+              <h5>Vaikunta Ekadasi</h5>
+              <p>December</p>
+              <p class="text-muted small">Famous Vaishnavite festival.</p>
+            </div>
+          </div>
+        </div>
+        
+      
+        
+        <div class="col-md-4">
+          <div class="card shadow-sm">
+            <div class="card-body">
+              <h5>Navaratri</h5>
+              <p>October</p>
+              <p class="text-muted small">Nine-day festival with cultural events.</p>
+            </div>
+          </div>
+        </div>
+        
+      
+        
+        <div class="col-md-4">
+          <div class="card shadow-sm">
+            <div class="card-body">
+              <h5>Deepavali</h5>
+              <p>October</p>
+              <p class="text-muted small">Festival of lights and shopping season.</p>
+            </div>
+          </div>
+        </div>
+        
+      
+        
+        <div class="col-md-4">
+          <div class="card shadow-sm">
+            <div class="card-body">
+              <h5>Tamil New Year</h5>
+              <p>April</p>
+              <p class="text-muted small">Celebration of the Tamil New Year.</p>
+            </div>
+          </div>
+        </div>
+        
+      
+    </div>
+  </div>
+</section>
+
+<section class="py-5 bg-light">
+  <div class="container">
+    <div class="text-center mb-5"><h2>Nearby Services</h2></div>
+    <div class="row g-4">
+      <div class="col-md-3">
+        <div class="card text-center h-100 shadow-sm">
+          <div class="card-body">
+            <i class="bi bi-building fs-1 text-primary"></i>
+            <h5 class="mt-3">Hotels</h5>
+            <p>1+ Hotels</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card text-center h-100 shadow-sm">
+          <div class="card-body">
+            <i class="bi bi-cup-hot fs-1 text-success"></i>
+            <h5>Restaurants</h5>
+            <p>Coming soon</p>
+          </div>
+        </div>
+      </div>
+      <!-- Parking / Local Guides: no matching JSON collection yet, kept as demo -->
+      <div class="col-md-3">
+        <div class="card text-center h-100 shadow-sm">
+          <div class="card-body">
+            <i class="bi bi-p-circle fs-1 text-warning"></i>
+            <h5>Parking</h5>
+            <p>Safe Parking</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card text-center h-100 shadow-sm">
+          <div class="card-body">
+            <i class="bi bi-person-badge fs-1 text-danger"></i>
+            <h5>Local Guides</h5>
+            <p>Verified Experts</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-5" id="shoppingZone">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="fw-bold">Shopping Zone</h2>
+      <p class="text-muted">Discover authentic silk sarees, jewellery and traditional shopping destinations.</p>
+    </div>
+    <div class="row g-4">
+      
+        
+        <div class="col-lg-3 col-md-6">
+          <div class="card h-100 shadow-sm">
+            <img src="https://placehold.co/600x400?text=Bridal%20Pure%20Silk%20Saree" class="card-img-top">
+            <div class="card-body">
+              <h5>Bridal Pure Silk Saree</h5>
+              <p class="text-muted">Pure zari bridal silk saree</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="badge bg-success">₹24,999</span>
+                
+                
+                <a href="/business/sri-lakshmi-silks/" class="btn btn-sm btn-primary">View Seller</a>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      
+        
+        <div class="col-lg-3 col-md-6">
+          <div class="card h-100 shadow-sm">
+            <img src="https://placehold.co/600x400?text=Soft%20Silk%20Saree" class="card-img-top">
+            <div class="card-body">
+              <h5>Soft Silk Saree</h5>
+              <p class="text-muted">Soft silk saree for festive wear</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="badge bg-success">₹8,999</span>
+                
+                
+                <a href="/business/sri-lakshmi-silks/" class="btn btn-sm btn-primary">View Seller</a>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      
+        
+        <div class="col-lg-3 col-md-6">
+          <div class="card h-100 shadow-sm">
+            <img src="https://placehold.co/600x400?text=South%20Indian%20Meals" class="card-img-top">
+            <div class="card-body">
+              <h5>South Indian Meals</h5>
+              <p class="text-muted">Unlimited vegetarian meals</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="badge bg-success">₹180</span>
+                
+                
+                <a href="/business/hotel-ganga/" class="btn btn-sm btn-primary">View Seller</a>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      
+        
+        <div class="col-lg-3 col-md-6">
+          <div class="card h-100 shadow-sm">
+            <img src="https://placehold.co/600x400?text=22K%20Gold%20Necklace" class="card-img-top">
+            <div class="card-body">
+              <h5>22K Gold Necklace</h5>
+              <p class="text-muted">Traditional bridal necklace</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="badge bg-success">Market Price</span>
+                
+                
+                <a href="/business/kanchi-jewels/" class="btn btn-sm btn-primary">View Seller</a>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      
+        
+        <div class="col-lg-3 col-md-6">
+          <div class="card h-100 shadow-sm">
+            <img src="https://placehold.co/600x400?text=Airport%20Drop" class="card-img-top">
+            <div class="card-body">
+              <h5>Airport Drop</h5>
+              <p class="text-muted">One-way airport taxi service</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="badge bg-success">Starts from ₹1800</span>
+                
+                
+                <a href="/business/annai-cabs/" class="btn btn-sm btn-primary">View Seller</a>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      
+    </div>
+  </div>
+</section>
+
+<section class="py-5 bg-light">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-6">
+        <span class="badge bg-danger mb-3">Wedding Assistant</span>
+        <h2 class="fw-bold">Wedding Shopping Planner</h2>
+        <p class="lead">Plan your complete wedding shopping in Kanchipuram.</p>
+        <ul class="list-group mb-4">
+          <li class="list-group-item">✔ Bridal Sarees</li>
+          <li class="list-group-item">✔ Jewellery Suggestions</li>
+          <li class="list-group-item">✔ Hotel Booking</li>
+          <li class="list-group-item">✔ Tailoring</li>
+          <li class="list-group-item">✔ Appointment Booking</li>
+        </ul>
+      </div>
+      <div class="col-lg-6">
+        <div class="card shadow border-0">
+          <div class="card-body">
+            <h4 class="mb-4">Generate Wedding Plan</h4>
+            <div class="mb-3">
+              <label class="form-label">Wedding Date</label>
+              <input type="date" class="form-control">
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Budget</label>
+              <select class="form-select">
+                <option>&#8377;50,000</option><option>&#8377;1,00,000</option><option>&#8377;2,00,000</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Shopping Days</label>
+              <select class="form-select">
+                <option>1 Day</option><option>2 Days</option><option>3 Days</option>
+              </select>
+            </div>
+            <button class="btn btn-danger w-100" data-book="Wedding Shopping Appointment">Generate Demo Plan</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-5">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2>Temple Mobile App</h2>
+      <p class="text-muted">Everything you need during your pilgrimage.</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-3">
+        <div class="card text-center h-100 shadow-sm"><div class="card-body">
+          <i class="bi bi-phone fs-1 text-primary"></i><h5 class="mt-3">Darshan Timings</h5>
+        </div></div>
+      </div>
+      <div class="col-md-3">
+        <div class="card text-center h-100 shadow-sm"><div class="card-body">
+          <i class="bi bi-map fs-1 text-success"></i><h5 class="mt-3">Offline Maps</h5>
+        </div></div>
+      </div>
+      <div class="col-md-3">
+        <div class="card text-center h-100 shadow-sm"><div class="card-body">
+          <i class="bi bi-bell fs-1 text-warning"></i><h5 class="mt-3">Festival Alerts</h5>
+        </div></div>
+      </div>
+      <div class="col-md-3">
+        <div class="card text-center h-100 shadow-sm"><div class="card-body">
+          <i class="bi bi-heart fs-1 text-danger"></i><h5 class="mt-3">Donations</h5>
+        </div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-5 bg-light">
+  <div class="container">
+    <div class="text-center mb-5"><h2>Temple Audio Guide</h2></div>
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div class="card shadow">
+          <div class="card-body">
+            <div class="row align-items-center">
+              <div class="col-md-4">
+                <img src="https://placehold.co/500x300?text=Temple" class="img-fluid rounded">
+              </div>
+              <div class="col-md-8">
+                <h4>Kanchi Kudil</h4>
+                <p>Listen to temple history in multiple languages.</p>
+                <div class="mb-3">
+                  <button class="btn btn-success" id="playAudioBtn"><i class="bi bi-play-fill"></i> Play Audio</button>
+                  <button class="btn btn-outline-primary lang-btn" data-lang="English">English</button>
+                  <button class="btn btn-outline-primary lang-btn" data-lang="Tamil">Tamil</button>
+                  <button class="btn btn-outline-primary lang-btn" data-lang="Hindi">Hindi</button>
+                </div>
+                <div class="progress"><div class="progress-bar" style="width:35%"></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-5" id="businessPortal">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2>Business Portal</h2>
+      <p class="text-muted">Hotels, Restaurants, Shops &amp; Guides can manage everything from one dashboard.</p>
+      <p class="fw-bold text-primary">5 businesses already listed on Kanchi360</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-lg-3 col-md-6">
+        <div class="card h-100 shadow-sm"><div class="card-body text-center">
+          <i class="bi bi-building fs-1 text-primary"></i><h5 class="mt-3">Hotel Dashboard</h5>
+          <ul class="list-group list-group-flush mt-3">
+            <li class="list-group-item">Room Availability</li>
+            <li class="list-group-item">Online Booking</li>
+            <li class="list-group-item">Promotions</li>
+          </ul>
+        </div></div>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <div class="card h-100 shadow-sm"><div class="card-body text-center">
+          <i class="bi bi-shop fs-1 text-success"></i><h5 class="mt-3">Shop Dashboard</h5>
+          <ul class="list-group list-group-flush mt-3">
+            <li class="list-group-item">Upload Products</li>
+            <li class="list-group-item">Catalog</li>
+            <li class="list-group-item">Appointments</li>
+          </ul>
+        </div></div>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <div class="card h-100 shadow-sm"><div class="card-body text-center">
+          <i class="bi bi-cup-hot fs-1 text-danger"></i><h5 class="mt-3">Restaurant</h5>
+          <ul class="list-group list-group-flush mt-3">
+            <li class="list-group-item">Offers</li>
+            <li class="list-group-item">Menu</li>
+            <li class="list-group-item">Reservations</li>
+          </ul>
+        </div></div>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <div class="card h-100 shadow-sm"><div class="card-body text-center">
+          <i class="bi bi-person-badge fs-1 text-warning"></i><h5 class="mt-3">Local Guides</h5>
+          <ul class="list-group list-group-flush mt-3">
+            <li class="list-group-item">Schedule</li>
+            <li class="list-group-item">Bookings</li>
+            <li class="list-group-item">Ratings</li>
+          </ul>
+        </div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-5 bg-light">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2>Advertise &amp; Grow With Kanchi360</h2>
+      <p class="text-muted">Simple plans for local businesses to get discovered.</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm"><div class="card-body text-center">
+          <h5>Basic Listing</h5>
+          <p class="text-muted">Free directory listing with contact details.</p>
+          <span class="badge bg-secondary">Free</span>
+        </div></div>
+      </div>
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm border-warning"><div class="card-body text-center">
+          <h5>Premium Listing</h5>
+          <p class="text-muted">Priority placement, badge, photo gallery.</p>
+          <span class="badge bg-warning text-dark">Premium</span>
+        </div></div>
+      </div>
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm"><div class="card-body text-center">
+          <h5>Banner Ads</h5>
+          <p class="text-muted">Homepage &amp; category-page banner placements.</p>
+          <span class="badge bg-info">Contact for rates</span>
+        </div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-5" id="reviews">
+  <div class="container">
+    <div class="text-center mb-5"><h2>What Visitors Say</h2></div>
+
+    <div id="reviewsCarousel" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        
+        <div class="carousel-item active">
+          <div class="row justify-content-center">
+            <div class="col-lg-6">
+              <div class="card shadow-sm text-center p-4">
+                <div class="mb-2 text-warning">
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                </div>
+                <p class="fst-italic">&ldquo;Made planning our temple visit so much easier — found timings and a good hotel in minutes.&rdquo;</p>
+                <p class="fw-bold mb-0">Priya R.</p>
+                <p class="text-muted small">Chennai</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="carousel-item ">
+          <div class="row justify-content-center">
+            <div class="col-lg-6">
+              <div class="card shadow-sm text-center p-4">
+                <div class="mb-2 text-warning">
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                </div>
+                <p class="fst-italic">&ldquo;Found a great silk shop through the directory, staff were exactly as described.&rdquo;</p>
+                <p class="fw-bold mb-0">Arun K.</p>
+                <p class="text-muted small">Bengaluru</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="carousel-item ">
+          <div class="row justify-content-center">
+            <div class="col-lg-6">
+              <div class="card shadow-sm text-center p-4">
+                <div class="mb-2 text-warning">
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                </div>
+                <p class="fst-italic">&ldquo;Loved the festival calendar feature, we planned our trip around Brahmotsavam.&rdquo;</p>
+                <p class="fw-bold mb-0">Meena S.</p>
+                <p class="text-muted small">Kanchipuram</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="carousel-item ">
+          <div class="row justify-content-center">
+            <div class="col-lg-6">
+              <div class="card shadow-sm text-center p-4">
+                <div class="mb-2 text-warning">
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                </div>
+                <p class="fst-italic">&ldquo;Cab booking contact was quick to respond, smooth pickup from the station.&rdquo;</p>
+                <p class="fw-bold mb-0">Vignesh T.</p>
+                <p class="text-muted small">Coimbatore</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="carousel-item ">
+          <div class="row justify-content-center">
+            <div class="col-lg-6">
+              <div class="card shadow-sm text-center p-4">
+                <div class="mb-2 text-warning">
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                </div>
+                <p class="fst-italic">&ldquo;Emergency numbers section was handy when we needed a pharmacy late at night.&rdquo;</p>
+                <p class="fw-bold mb-0">Lakshmi N.</p>
+                <p class="text-muted small">Vellore</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#reviewsCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" style="filter:invert(1) grayscale(1)"></span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#reviewsCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" style="filter:invert(1) grayscale(1)"></span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<section class="py-5 bg-light" id="latestBlogs">
+  <div class="container">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <h2 class="mb-0">From the Blog</h2>
+      <a href="/blog/" class="btn btn-outline-primary">See More Articles</a>
+    </div>
+    <div class="row g-4">
+      
+        
+        <div class="col-md-4">
+          <div class="card h-100 shadow-sm">
+            <img src="https://images.unsplash.com/photo-1596401057633-54c15aab5bde?w=1200" alt="Scenic Tamil Nadu countryside road" class="card-img-top" loading="lazy" style="height:180px;object-fit:cover">
+            <div class="card-body">
+              <span class="badge bg-secondary mb-2">Tourism</span>
+              <h5><a href="/blog/nearby-tourist-places-around-kanchipuram/" class="text-decoration-none text-dark">Nearby Tourist Places Around Kanchipuram: Where to Go Next</a></h5>
+              <p class="text-muted small mb-2">7 min read</p>
+              <p class="text-muted">Kanchipuram makes a great base for exploring several nearby destinations, each offering something quite differ…</p>
+              <a href="/blog/nearby-tourist-places-around-kanchipuram/" class="btn btn-sm btn-outline-primary">Read More</a>
+            </div>
+          </div>
+        </div>
+        
+      
+        
+        <div class="col-md-4">
+          <div class="card h-100 shadow-sm">
+            <img src="https://images.unsplash.com/photo-1610030182451-fbf6bd8b4a4a?w=1200" alt="Tourist browsing silk sarees in a shop" class="card-img-top" loading="lazy" style="height:180px;object-fit:cover">
+            <div class="card-body">
+              <span class="badge bg-secondary mb-2">Shopping</span>
+              <h5><a href="/blog/shopping-tips-for-foreign-tourists-kanchipuram/" class="text-decoration-none text-dark">Shopping Tips for Foreign Tourists Visiting Kanchipuram</a></h5>
+              <p class="text-muted small mb-2">7 min read</p>
+              <p class="text-muted">Shopping in Kanchipuram as a foreign visitor comes with a few extra considerations — from understanding an unf…</p>
+              <a href="/blog/shopping-tips-for-foreign-tourists-kanchipuram/" class="btn btn-sm btn-outline-primary">Read More</a>
+            </div>
+          </div>
+        </div>
+        
+      
+        
+        <div class="col-md-4">
+          <div class="card h-100 shadow-sm">
+            <img src="https://images.unsplash.com/photo-1583391733956-6c78276477e2?w=1200" alt="Wedding shopping items laid out together" class="card-img-top" loading="lazy" style="height:180px;object-fit:cover">
+            <div class="card-body">
+              <span class="badge bg-secondary mb-2">Marriage</span>
+              <h5><a href="/blog/wedding-shopping-checklist-kanchipuram/" class="text-decoration-none text-dark">The Complete Wedding Shopping Checklist for a Kanchipuram Trip</a></h5>
+              <p class="text-muted small mb-2">15 min read</p>
+              <p class="text-muted">A dedicated wedding shopping trip to Kanchipuram covers a lot of ground — sarees, jewellery, groom attire, and…</p>
+              <a href="/blog/wedding-shopping-checklist-kanchipuram/" class="btn btn-sm btn-outline-primary">Read More</a>
+            </div>
+          </div>
+        </div>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+  </div>
+</section>
+
+<section class="py-5 bg-light" id="faq">
+  <div class="container">
+    <div class="text-center mb-5"><h2>Frequently Asked Questions</h2></div>
+    <div class="accordion col-lg-8 mx-auto" id="faqAccordion">
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#faq1">
+            How do I list my business?
+          </button>
+        </h2>
+        <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">Use the Contact form below, or reach out via WhatsApp to get added to our directory sheet.</div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#faq2">
+            Is premium listing paid?
+          </button>
+        </h2>
+        <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">Yes — premium and banner placements are paid; basic listings are free.</div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#faq3">
+            Do you cover other towns?
+          </button>
+        </h2>
+        <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">Kanchipuram first — more towns are planned next.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-5 bg-light" id="emergencyNumbers">
+  <div class="container">
+    <div class="text-center mb-4">
+      <h2><i class="bi bi-telephone-forward text-danger"></i> Emergency Numbers</h2>
+      <p class="text-muted">Save these before you travel.</p>
+    </div>
+    <div class="row g-3">
+      
+        
+        <div class="col-md-4 col-6">
+          <div class="card shadow-sm h-100">
+            <div class="card-body d-flex justify-content-between align-items-center">
+              <div>
+                <div class="fw-bold">Police</div>
+                <div class="text-muted small">Kanchipuram Town Police</div>
+              </div>
+              <a href="tel:100" class="btn btn-sm btn-outline-danger">100</a>
+            </div>
+          </div>
+        </div>
+        
+      
+        
+        <div class="col-md-4 col-6">
+          <div class="card shadow-sm h-100">
+            <div class="card-body d-flex justify-content-between align-items-center">
+              <div>
+                <div class="fw-bold">Ambulance</div>
+                <div class="text-muted small">108 Ambulance</div>
+              </div>
+              <a href="tel:108" class="btn btn-sm btn-outline-danger">108</a>
+            </div>
+          </div>
+        </div>
+        
+      
+        
+        <div class="col-md-4 col-6">
+          <div class="card shadow-sm h-100">
+            <div class="card-body d-flex justify-content-between align-items-center">
+              <div>
+                <div class="fw-bold">Fire</div>
+                <div class="text-muted small">Fire &amp; Rescue</div>
+              </div>
+              <a href="tel:101" class="btn btn-sm btn-outline-danger">101</a>
+            </div>
+          </div>
+        </div>
+        
+      
+        
+        <div class="col-md-4 col-6">
+          <div class="card shadow-sm h-100">
+            <div class="card-body d-flex justify-content-between align-items-center">
+              <div>
+                <div class="fw-bold">Hospital</div>
+                <div class="text-muted small">Government Hospital</div>
+              </div>
+              <a href="tel:4412345678" class="btn btn-sm btn-outline-danger">4412345678</a>
+            </div>
+          </div>
+        </div>
+        
+      
+        
+        <div class="col-md-4 col-6">
+          <div class="card shadow-sm h-100">
+            <div class="card-body d-flex justify-content-between align-items-center">
+              <div>
+                <div class="fw-bold">Medical</div>
+                <div class="text-muted small">24x7 Medical Store</div>
+              </div>
+              <a href="tel:919999999999" class="btn btn-sm btn-outline-danger">919999999999</a>
+            </div>
+          </div>
+        </div>
+        
+      
+    </div>
+  </div>
+</section>
+
+<section class="py-5" id="contactUs">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-6">
+        <h2 class="mb-4 text-center">Contact Us</h2>
+        <form id="contactForm">
+          <div class="mb-3">
+            <label class="form-label">Name</label>
+            <input class="form-control" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Phone</label>
+            <input class="form-control" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Message</label>
+            <textarea class="form-control" rows="3"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary w-100">Send Enquiry</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="py-5 bg-light">
+  <div class="container text-center">
+    <h2 class="mb-3">Own a business in Kanchipuram?</h2>
+    <p class="lead mb-4">Get listed, get verified, go premium.</p>
+    <a href="/business/" class="btn btn-primary btn-lg">List Your Business</a>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ Footer ============ -->
+<footer class="bg-dark text-light pt-5 pb-4 mt-5">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-md-4">
+        <h5 class="text-warning"><i class="bi bi-building"></i> Kanchi360</h5>
+        <p class="text-secondary small">Your local guide to Kanchipuram — temples, shopping, hotels and services in one place.</p>
+      </div>
+      <div class="col-md-4">
+        <h6>Quick Links</h6>
+        <ul class="list-unstyled small">
+          <li><a href="/business/" class="link-light link-opacity-75">Business Directory</a></li>
+          <li><a href="/tourist-places/" class="link-light link-opacity-75">Temples &amp; Places</a></li>
+          <li><a href="/blog/" class="link-light link-opacity-75">Blog</a></li>
+          <li><a href="/#emergencyNumbers" class="link-light link-opacity-75">Emergency Numbers</a></li>
+        </ul>
+      </div>
+      <div class="col-md-4">
+        <h6>List Your Business</h6>
+        <p class="text-secondary small">Free basic listings, premium placements available.</p>
+        <a href="/#contactUs" class="btn btn-sm btn-warning text-dark">Get Listed</a>
+      </div>
+    </div>
+    <hr class="border-secondary">
+    <p class="text-center small">
+      <a href="/privacy-policy/" class="link-light link-opacity-75 me-2">Privacy Policy</a>&middot;
+      <a href="/terms-of-use/" class="link-light link-opacity-75 mx-2">Terms of Use</a>&middot;
+      <a href="/terms-and-conditions/" class="link-light link-opacity-75 mx-2">Terms &amp; Conditions</a>&middot;
+      <a href="/infringement-policy/" class="link-light link-opacity-75 ms-2">Infringement Policy</a>
+    </p>
+    <p class="text-secondary small">
+      <strong class="text-light">Advertise on Kanchi360 — Get Seen by More Local Customers.</strong>
+      Kanchipuram businesses grow faster when the right customers can find them at the right moment.
+      Kanchi360 puts your listing in front of people already searching in your category and area, with
+      plans covering higher search placement, an online catalogue, a verified badge and homepage banner
+      spots. <a href="/business-plans/" class="link-warning">Compare plans</a> or
+      <a href="/advertise-with-us/" class="link-warning">learn how it works</a> to get your business listed.
+    </p>
+    <p class="text-center text-secondary small mb-0">&copy; Kanchi360. Built for Kanchipuram.</p>
+  </div>
+</footer>
+
+<!-- ============ Floating dark-mode toggle (desktop) - back-to-top is added by JS ============ -->
+<button id="darkToggle" class="btn btn-warning">🌙</button>
+
+<!-- ============ Mobile bottom nav ============ -->
+<nav id="bottomNav">
+  <a href="/"><i class="bi bi-house"></i>Home</a>
+  <a href="/business/"><i class="bi bi-shop"></i>Business</a>
+  <a href="/search/"><i class="bi bi-search"></i>Search</a>
+  <a href="#" id="bottomNavWishlist"><i class="bi bi-heart"></i>Favorites</a>
+  <a href="#" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu"><i class="bi bi-list"></i>Menu</a>
+</nav>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- components first (other modules depend on these) -->
+<script src="/js/components/toast.js"></script>
+<script src="/js/components/modal.js"></script>
+
+<!-- feature modules: each one is independent, safe to edit without touching the rest -->
+<script src="/js/modules/theme.js"></script>
+<script src="/js/modules/booking.js"></script>
+<script src="/js/modules/wishlist.js"></script>
+<script src="/js/modules/counters.js"></script>
+<script src="/js/modules/templeSearch.js"></script>
+<script src="/js/modules/contactForm.js"></script>
+<script src="/js/modules/backToTop.js"></script>
+<script src="/js/modules/scrollReveal.js"></script>
+
+<!-- entry point, loaded last -->
+<script src="https://cdn.jsdelivr.net/npm/minisearch@7.2.0/dist/umd/index.min.js"></script>
+<script src="/js/search.js"></script>
+<script src="/js/core/app.js"></script>
+
+<!-- Google Translate, restricted to our supported languages.
+     TO ADD/REMOVE A LANGUAGE: edit the includedLanguages string below (two places,
+     desktop + mobile widget) using ISO codes, comma-separated, no spaces. -->
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({
+    pageLanguage: 'en',
+    includedLanguages: 'en,ta,hi,te,kn,fr,ml,bn,mr,gu',
+    layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+  }, 'google_translate_element');
+  new google.translate.TranslateElement({
+    pageLanguage: 'en',
+    includedLanguages: 'en,ta,hi,te,kn,fr,ml,bn,mr,gu',
+    layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+  }, 'google_translate_element_mobile');
+}
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+</html>

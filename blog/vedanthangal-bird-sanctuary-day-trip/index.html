@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vedanthangal Bird Sanctuary: A Nature Day Trip From Kanchipuram | Kanchi360</title>
+<meta name="description" content="What to know about visiting Vedanthangal Bird Sanctuary from Kanchipuram, including the best season to see migratory birds.">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+<style>
+  :root {
+    --brand-primary: #B8541D;
+    --brand-primary-dark: #8F3F14;
+    --brand-accent: #D4A017;
+    --brand-ink: #2A1E14;
+    --radius-lg: 16px;
+    --radius-md: 10px;
+  }
+  body { font-family: "Segoe UI", system-ui, -apple-system, sans-serif; color: var(--brand-ink); }
+  h1, h2, h3, h4, h5 { font-weight: 700; }
+  section { scroll-margin-top: 84px; }
+
+  .navbar-brand { color: var(--brand-accent) !important; }
+  .btn-primary { background: var(--brand-primary); border-color: var(--brand-primary); }
+  .btn-primary:hover { background: var(--brand-primary-dark); border-color: var(--brand-primary-dark); }
+  .btn-outline-primary { color: var(--brand-primary); border-color: var(--brand-primary); }
+  .btn-outline-primary:hover { background: var(--brand-primary); border-color: var(--brand-primary); }
+  .text-primary { color: var(--brand-primary) !important; }
+  .badge.bg-warning { background: var(--brand-accent) !important; }
+
+  .card { border-radius: var(--radius-lg); border: none; transition: transform .2s ease, box-shadow .2s ease; }
+  .card:hover { transform: translateY(-4px); box-shadow: 0 12px 24px rgba(0,0,0,.12) !important; }
+  .card-img-top { border-radius: var(--radius-lg) var(--radius-lg) 0 0; }
+  .btn { border-radius: var(--radius-md); min-height: 44px; }
+  .btn-sm { min-height: 36px; }
+
+  /* dark mode */
+  body.dark-mode { background:#121212; color:#e8e0d8; }
+  body.dark-mode .card { background:#1e1e1e; color:#e8e0d8; }
+  body.dark-mode .bg-light { background:#181818 !important; }
+  body.dark-mode .text-muted { color:#a8a098 !important; }
+
+  /* scroll reveal */
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; }
+  .reveal.revealed { opacity: 1; transform: none; }
+
+  /* dark-mode toggle (static, desktop only) */
+  #darkToggle {
+    position: fixed; right: 20px; bottom: 20px; z-index: 1050; border-radius: 50%;
+    width: 48px; height: 48px; display: none; align-items: center; justify-content: center;
+  }
+  @media (min-width: 768px) { #darkToggle { display: flex; } }
+
+  /* back-to-top: created by js/modules/backToTop.js, styled here via .back-top/.show */
+  .back-top {
+    position: fixed; right: 20px; bottom: 80px; z-index: 1050; border-radius: 50%;
+    width: 48px; height: 48px; display: none; align-items: center; justify-content: center;
+    background: var(--brand-primary); color: #fff; border: none; box-shadow: 0 4px 12px rgba(0,0,0,.2);
+  }
+  .back-top.show { display: flex; }
+  @media (max-width: 767.98px) { .back-top { display: none !important; } }
+
+  /* mobile bottom nav (native-app style) */
+  #bottomNav {
+    display: flex; position: fixed; bottom: 0; left: 0; right: 0; z-index: 1040;
+    background: #fff; border-top: 1px solid rgba(0,0,0,.08); box-shadow: 0 -2px 10px rgba(0,0,0,.08);
+  }
+  #bottomNav a {
+    flex: 1; text-align: center; padding: 8px 4px; font-size: .7rem; color: #6b6b6b; text-decoration: none;
+  }
+  #bottomNav a i { display: block; font-size: 1.25rem; margin-bottom: 2px; }
+  #bottomNav a.active { color: var(--brand-primary); }
+  body.dark-mode #bottomNav { background:#1e1e1e; border-color:#333; }
+  @media (min-width: 768px) { #bottomNav { display: none; } }
+  main { padding-bottom: 0; }
+  @media (max-width: 767.98px) { main { padding-bottom: 64px; } }
+
+  /* google translate: hide google chrome, keep just the dropdown */
+  .goog-te-banner-frame { display: none !important; }
+  body { top: 0 !important; }
+  #google_translate_element { display: inline-block; }
+  #google_translate_element .goog-te-gadget { font-size: 0; }
+  #google_translate_element .goog-te-gadget-simple {
+    border-radius: var(--radius-md); border: 1px solid rgba(255,255,255,.3); padding: 4px 8px; background: transparent;
+  }
+  #google_translate_element .goog-te-gadget-simple span { color: #fff; font-size: .8rem; }
+
+  /* skeleton shimmer (used on search page while MiniSearch loads) */
+  .skeleton { background: linear-gradient(90deg, #eee 25%, #f5f5f5 50%, #eee 75%); background-size: 200% 100%; animation: shimmer 1.2s infinite; border-radius: var(--radius-md); }
+
+  /* blog sidebar category badges, now clickable buttons but still badge-sized */
+  .sidebar-cat-btn { font-size: .8rem; padding: .35em .65em; min-height: unset; }
+  @keyframes shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
+</style>
+</head>
+<body>
+
+<!-- ============ Desktop navbar (with integrated search) ============ -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="/"><i class="bi bi-building"></i> Kanchi360</a>
+
+    <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- desktop-only inline menu + search -->
+    <div class="d-none d-lg-flex align-items-center flex-grow-1 justify-content-end">
+      <ul class="navbar-nav me-3">
+        <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="/business/">Business</a></li>
+        <li class="nav-item"><a class="nav-link" href="/tourist-places/">Temples</a></li>
+        <li class="nav-item"><a class="nav-link" href="/#shoppingZone">Shopping</a></li>
+        <li class="nav-item"><a class="nav-link" href="/#festivalCalendar">Festivals</a></li>
+        <li class="nav-item"><a class="nav-link" href="/#reviews">Reviews</a></li>
+        <li class="nav-item"><a class="nav-link" href="/blog/">Blog</a></li>
+        <li class="nav-item"><a class="nav-link" href="/#faq">FAQ</a></li>
+        <li class="nav-item"><a class="nav-link" href="/#contactUs">Contact</a></li>
+        <li class="nav-item"><a class="nav-link text-warning" href="/advertise-with-us/">Advertise</a></li>
+      </ul>
+      <form action="/search/" method="get" class="position-relative me-3" role="search"
+            data-search-widget data-search-navigate>
+        <input type="search" name="q" data-search-box autocomplete="off"
+               class="form-control form-control-sm" style="width:180px" placeholder="Search...">
+        <div data-search-suggestions class="list-group position-absolute w-100 shadow" style="z-index:2000; display:none;"></div>
+      </form>
+      <div id="google_translate_element"></div>
+    </div>
+  </div>
+</nav>
+
+<!-- ============ Mobile offcanvas drawer menu ============ -->
+<div class="offcanvas offcanvas-start" tabindex="-1" id="mobileMenu">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title"><i class="bi bi-building"></i> Kanchi360</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+  </div>
+  <div class="offcanvas-body d-flex flex-column">
+    <form action="/search/" method="get" class="position-relative mb-3" role="search"
+          data-search-widget data-search-navigate>
+      <input type="search" name="q" data-search-box autocomplete="off"
+             class="form-control" placeholder="Search shops, hotels, temples...">
+      <div data-search-suggestions class="list-group position-absolute w-100 shadow" style="z-index:2000; display:none;"></div>
+    </form>
+    <ul class="nav nav-pills flex-column gap-1">
+      <li class="nav-item"><a class="nav-link" href="/"><i class="bi bi-house me-2"></i>Home</a></li>
+      <li class="nav-item"><a class="nav-link" href="/business/"><i class="bi bi-shop me-2"></i>Business Directory</a></li>
+      <li class="nav-item"><a class="nav-link" href="/tourist-places/"><i class="bi bi-bank me-2"></i>Temples</a></li>
+      <li class="nav-item"><a class="nav-link" href="/#shoppingZone"><i class="bi bi-bag me-2"></i>Shopping</a></li>
+      <li class="nav-item"><a class="nav-link" href="/#festivalCalendar"><i class="bi bi-calendar-event me-2"></i>Festivals</a></li>
+      <li class="nav-item"><a class="nav-link" href="/#emergencyNumbers"><i class="bi bi-telephone me-2"></i>Emergency Numbers</a></li>
+      <li class="nav-item"><a class="nav-link" href="/#reviews"><i class="bi bi-star me-2"></i>Reviews</a></li>
+      <li class="nav-item"><a class="nav-link" href="/blog/"><i class="bi bi-journal-text me-2"></i>Blog</a></li>
+      <li class="nav-item"><a class="nav-link" href="/#faq"><i class="bi bi-question-circle me-2"></i>FAQ</a></li>
+      <li class="nav-item"><a class="nav-link" href="/#contactUs"><i class="bi bi-envelope me-2"></i>Contact</a></li>
+      <li class="nav-item"><a class="nav-link text-warning" href="/advertise-with-us/"><i class="bi bi-megaphone me-2"></i>Advertise With Us</a></li>
+    </ul>
+    <div class="mt-auto pt-3" id="google_translate_element_mobile"></div>
+  </div>
+</div>
+
+<main>
+
+
+<!-- SEO: canonical + OpenGraph + Twitter Card -->
+<link rel="canonical" href="https://kanchi360.com/blog/vedanthangal-bird-sanctuary-day-trip/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vedanthangal Bird Sanctuary: A Nature Day Trip From Kanchipuram">
+<meta property="og:description" content="What to know about visiting Vedanthangal Bird Sanctuary from Kanchipuram, including the best season to see migratory birds.">
+<meta property="og:image" content="https://images.unsplash.com/photo-1444464666168-49d633b86797?w=1200">
+<meta property="og:url" content="https://kanchi360.com/blog/vedanthangal-bird-sanctuary-day-trip/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Vedanthangal Bird Sanctuary: A Nature Day Trip From Kanchipuram">
+<meta name="twitter:description" content="What to know about visiting Vedanthangal Bird Sanctuary from Kanchipuram, including the best season to see migratory birds.">
+<meta name="twitter:image" content="https://images.unsplash.com/photo-1444464666168-49d633b86797?w=1200">
+
+<!-- JSON-LD: BlogPosting -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Vedanthangal Bird Sanctuary: A Nature Day Trip From Kanchipuram",
+  "description": "What to know about visiting Vedanthangal Bird Sanctuary from Kanchipuram, including the best season to see migratory birds.",
+  "image": "https://images.unsplash.com/photo-1444464666168-49d633b86797?w=1200",
+  "author": { "@type": "Organization", "name": "Kanchi360 Editorial" },
+  "publisher": { "@type": "Organization", "name": "Kanchi360" },
+  "datePublished": "2026-01-25",
+  "dateModified": "2026-01-25",
+  "mainEntityOfPage": "https://kanchi360.com/blog/vedanthangal-bird-sanctuary-day-trip/"
+}
+</script>
+
+<!-- JSON-LD: BreadcrumbList -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://kanchi360.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://kanchi360.com/blog/" },
+    { "@type": "ListItem", "position": 3, "name": "Vedanthangal Bird Sanctuary: A Nature Day Trip From Kanchipuram", "item": "https://kanchi360.com/blog/vedanthangal-bird-sanctuary-day-trip/" }
+  ]
+}
+</script>
+
+
+<!-- JSON-LD: FAQPage -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    
+    {
+      "@type": "Question",
+      "name": "Is Vedanthangal worth visiting outside of winter season?",
+      "acceptedAnswer": { "@type": "Answer", "text": "It's less dramatic outside peak migratory season, but resident birds are still present, so it can still be a pleasant, quiet outing — just don't expect the same scale of bird activity as during winter." }
+    },
+    
+    {
+      "@type": "Question",
+      "name": "Is there an entry fee for the sanctuary?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Nature and bird sanctuaries of this kind typically charge a modest entry fee, and it's worth checking current details locally before planning your visit, since timings and fees can be updated seasonally." }
+    }
+    
+  ]
+}
+</script>
+
+
+<!-- Hero -->
+<section class="py-4 py-md-5 bg-light">
+  <div class="container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item"><a href="/blog/">Blog</a></li>
+        <li class="breadcrumb-item"><a href="/blog/?category=Travel">Travel</a></li>
+        <li class="breadcrumb-item active">Vedanthangal Bird Sanctuary: A Nature Day Trip From Kanchipuram</li>
+      </ol>
+    </nav>
+    <span class="badge bg-secondary mb-2">Travel</span>
+    <h1 class="fw-bold">Vedanthangal Bird Sanctuary: A Nature Day Trip From Kanchipuram</h1>
+    <p class="lead text-muted">For visitors who want a break from temples and shopping, Vedanthangal Bird Sanctuary offers a completely different kind of day out — one of Tamil Nadu&#39;s oldest waterbird sanctuaries.</p>
+    <p class="text-muted small">
+      By Kanchi360 Editorial &middot; Published 25 Jan 2026
+      &middot; Updated 25 Jan 2026 &middot; 6 min read
+    </p>
+  </div>
+</section>
+
+<section class="py-4">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-8">
+        <img src="https://images.unsplash.com/photo-1444464666168-49d633b86797?w=1200" alt="Wetland bird sanctuary with birds on water" class="img-fluid rounded shadow mb-4 w-100" loading="lazy">
+
+        <article>
+          
+            
+              <h2 class="mt-4 mb-3">What Is Vedanthangal</h2>
+
+            
+          
+            
+              <p>Vedanthangal is one of the oldest bird sanctuaries in Tamil Nadu, centred around a water tank that attracts large numbers of migratory and resident waterbirds, including various species of herons, storks, ibises and cormorants. It&#39;s a well-known destination for birdwatchers and nature photographers visiting the wider Chennai-Kanchipuram region.</p>
+
+            
+          
+            
+              <h2 class="mt-4 mb-3">Best Time to Visit</h2>
+
+            
+          
+            
+              <p>The sanctuary is most rewarding during the migratory bird season, roughly through the winter months, when bird numbers and variety are at their highest. Visiting outside this window still offers some resident bird activity, but the dramatic large-flock scenes the sanctuary is known for are specifically a winter-season experience.</p>
+
+            
+          
+            
+              
+                <div class="alert alert-success"><i class="bi bi-lightbulb me-2"></i>Quick Tip: Early morning is the best time of day for birdwatching here, both for better bird activity and cooler, more comfortable walking conditions.</div>
+              
+
+            
+          
+            
+              <h2 class="mt-4 mb-3">Planning the Trip From Kanchipuram</h2>
+
+            
+          
+            
+              <p>Vedanthangal is a feasible half-day trip from Kanchipuram by road, making it easy to combine with a relaxed morning or afternoon back in town. Carry binoculars if you have them, and consider a local guide at the sanctuary, since they can point out species you&#39;d likely miss on your own.</p>
+
+            
+          
+            
+              <ul>
+                <li>Visit during winter migratory season for the fullest experience</li><li>Go early morning for the best bird activity and cooler temperatures</li><li>Carry binoculars and a zoom lens if photography is a priority</li><li>Wear comfortable, weather-appropriate clothing for walking around the wetland area</li>
+              </ul>
+
+            
+          
+            
+              <h2 class="mt-4 mb-3">Who Should Prioritize This Trip</h2>
+
+            
+          
+            
+              <p>This is a strong add-on specifically for travellers with an interest in birdwatching, nature photography, or simply wanting a quiet, green contrast to Kanchipuram&#39;s temple and shopping-focused itinerary. If neither nature nor birdwatching is a personal interest, your time may be better spent with additional temple visits or unhurried shopping instead.</p>
+
+            
+          
+            
+              <div class="card shadow-sm mb-3"><div class="card-body">
+                <h6 class="fw-bold">Is Vedanthangal worth visiting outside of winter season?</h6>
+                <p class="mb-0 text-muted">It&#39;s less dramatic outside peak migratory season, but resident birds are still present, so it can still be a pleasant, quiet outing — just don&#39;t expect the same scale of bird activity as during winter.</p>
+              </div></div>
+            
+          
+            
+              <div class="card shadow-sm mb-3"><div class="card-body">
+                <h6 class="fw-bold">Is there an entry fee for the sanctuary?</h6>
+                <p class="mb-0 text-muted">Nature and bird sanctuaries of this kind typically charge a modest entry fee, and it&#39;s worth checking current details locally before planning your visit, since timings and fees can be updated seasonally.</p>
+              </div></div>
+            
+          
+        </article>
+
+        
+        <h3 class="mt-5 mb-3">Frequently Asked Questions</h3>
+        <div class="accordion" id="postFaqAccordion">
+          
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button " data-bs-toggle="collapse" data-bs-target="#postFaq1">
+                Is Vedanthangal worth visiting outside of winter season?
+              </button>
+            </h2>
+            <div id="postFaq1" class="accordion-collapse collapse show" data-bs-parent="#postFaqAccordion">
+              <div class="accordion-body">It&#39;s less dramatic outside peak migratory season, but resident birds are still present, so it can still be a pleasant, quiet outing — just don&#39;t expect the same scale of bird activity as during winter.</div>
+            </div>
+          </div>
+          
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#postFaq2">
+                Is there an entry fee for the sanctuary?
+              </button>
+            </h2>
+            <div id="postFaq2" class="accordion-collapse collapse " data-bs-parent="#postFaqAccordion">
+              <div class="accordion-body">Nature and bird sanctuaries of this kind typically charge a modest entry fee, and it&#39;s worth checking current details locally before planning your visit, since timings and fees can be updated seasonally.</div>
+            </div>
+          </div>
+          
+        </div>
+        
+
+        <div class="mt-4">
+          <span class="badge bg-light text-dark border me-1">Vedanthangal Bird Sanctuary</span><span class="badge bg-light text-dark border me-1">Kanchipuram nature trip</span><span class="badge bg-light text-dark border me-1">bird watching Tamil Nadu</span>
+        </div>
+      </div>
+
+      <div class="col-lg-4">
+        <div class="card shadow-sm mb-4"><div class="card-body">
+          <h6 class="mb-3">Related Articles</h6>
+          <ul class="list-unstyled small mb-0">
+            
+            <li class="mb-2">
+              <a href="/blog/kanchipuram-railway-bus-stand-guide/" class="text-decoration-none">Kanchipuram Railway Station and Bus Stand Guide</a>
+              <span class="text-muted d-block" style="font-size:.75rem">Travel</span>
+            </li>
+            
+            <li class="mb-2">
+              <a href="/blog/vellore-fort-day-trip-from-kanchipuram/" class="text-decoration-none">Vellore Fort Day Trip From Kanchipuram: Is It Worth the Detour?</a>
+              <span class="text-muted d-block" style="font-size:.75rem">Travel</span>
+            </li>
+            
+            <li class="mb-2">
+              <a href="/blog/mahabalipuram-day-trip-from-kanchipuram/" class="text-decoration-none">Mahabalipuram Day Trip From Kanchipuram: Is It Worth Combining?</a>
+              <span class="text-muted d-block" style="font-size:.75rem">Travel</span>
+            </li>
+            
+            <li class="mb-2">
+              <a href="/blog/public-transport-auto-rickshaw-guide-kanchipuram/" class="text-decoration-none">Getting Around Kanchipuram: Public Transport and Auto Rickshaw Guide</a>
+              <span class="text-muted d-block" style="font-size:.75rem">Travel</span>
+            </li>
+            
+            <li class="mb-2">
+              <a href="/blog/nearby-tourist-places-around-kanchipuram/" class="text-decoration-none">Nearby Tourist Places Around Kanchipuram: Where to Go Next</a>
+              <span class="text-muted d-block" style="font-size:.75rem">Tourism</span>
+            </li>
+            
+            <li class="mb-2">
+              <a href="/blog/shopping-tips-for-foreign-tourists-kanchipuram/" class="text-decoration-none">Shopping Tips for Foreign Tourists Visiting Kanchipuram</a>
+              <span class="text-muted d-block" style="font-size:.75rem">Shopping</span>
+            </li>
+            
+          </ul>
+        </div></div>
+
+        <div class="card shadow-sm"><div class="card-body">
+          <h6 class="mb-3">Explore More</h6>
+          <a href="/business/" class="btn btn-sm btn-outline-primary w-100 mb-2">Business Directory</a>
+          <a href="/tourist-places/" class="btn btn-sm btn-outline-primary w-100 mb-2">Temples &amp; Places</a>
+          <a href="/blog/" class="btn btn-sm btn-outline-primary w-100">All Blog Articles</a>
+        </div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ Footer ============ -->
+<footer class="bg-dark text-light pt-5 pb-4 mt-5">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-md-4">
+        <h5 class="text-warning"><i class="bi bi-building"></i> Kanchi360</h5>
+        <p class="text-secondary small">Your local guide to Kanchipuram — temples, shopping, hotels and services in one place.</p>
+      </div>
+      <div class="col-md-4">
+        <h6>Quick Links</h6>
+        <ul class="list-unstyled small">
+          <li><a href="/business/" class="link-light link-opacity-75">Business Directory</a></li>
+          <li><a href="/tourist-places/" class="link-light link-opacity-75">Temples &amp; Places</a></li>
+          <li><a href="/blog/" class="link-light link-opacity-75">Blog</a></li>
+          <li><a href="/#emergencyNumbers" class="link-light link-opacity-75">Emergency Numbers</a></li>
+        </ul>
+      </div>
+      <div class="col-md-4">
+        <h6>List Your Business</h6>
+        <p class="text-secondary small">Free basic listings, premium placements available.</p>
+        <a href="/#contactUs" class="btn btn-sm btn-warning text-dark">Get Listed</a>
+      </div>
+    </div>
+    <hr class="border-secondary">
+    <p class="text-center small">
+      <a href="/privacy-policy/" class="link-light link-opacity-75 me-2">Privacy Policy</a>&middot;
+      <a href="/terms-of-use/" class="link-light link-opacity-75 mx-2">Terms of Use</a>&middot;
+      <a href="/terms-and-conditions/" class="link-light link-opacity-75 mx-2">Terms &amp; Conditions</a>&middot;
+      <a href="/infringement-policy/" class="link-light link-opacity-75 ms-2">Infringement Policy</a>
+    </p>
+    <p class="text-secondary small">
+      <strong class="text-light">Advertise on Kanchi360 — Get Seen by More Local Customers.</strong>
+      Kanchipuram businesses grow faster when the right customers can find them at the right moment.
+      Kanchi360 puts your listing in front of people already searching in your category and area, with
+      plans covering higher search placement, an online catalogue, a verified badge and homepage banner
+      spots. <a href="/business-plans/" class="link-warning">Compare plans</a> or
+      <a href="/advertise-with-us/" class="link-warning">learn how it works</a> to get your business listed.
+    </p>
+    <p class="text-center text-secondary small mb-0">&copy; Kanchi360. Built for Kanchipuram.</p>
+  </div>
+</footer>
+
+<!-- ============ Floating dark-mode toggle (desktop) - back-to-top is added by JS ============ -->
+<button id="darkToggle" class="btn btn-warning">🌙</button>
+
+<!-- ============ Mobile bottom nav ============ -->
+<nav id="bottomNav">
+  <a href="/"><i class="bi bi-house"></i>Home</a>
+  <a href="/business/"><i class="bi bi-shop"></i>Business</a>
+  <a href="/search/"><i class="bi bi-search"></i>Search</a>
+  <a href="#" id="bottomNavWishlist"><i class="bi bi-heart"></i>Favorites</a>
+  <a href="#" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu"><i class="bi bi-list"></i>Menu</a>
+</nav>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- components first (other modules depend on these) -->
+<script src="/js/components/toast.js"></script>
+<script src="/js/components/modal.js"></script>
+
+<!-- feature modules: each one is independent, safe to edit without touching the rest -->
+<script src="/js/modules/theme.js"></script>
+<script src="/js/modules/booking.js"></script>
+<script src="/js/modules/wishlist.js"></script>
+<script src="/js/modules/counters.js"></script>
+<script src="/js/modules/templeSearch.js"></script>
+<script src="/js/modules/contactForm.js"></script>
+<script src="/js/modules/backToTop.js"></script>
+<script src="/js/modules/scrollReveal.js"></script>
+
+<!-- entry point, loaded last -->
+<script src="https://cdn.jsdelivr.net/npm/minisearch@7.2.0/dist/umd/index.min.js"></script>
+<script src="/js/search.js"></script>
+<script src="/js/core/app.js"></script>
+
+<!-- Google Translate, restricted to our supported languages.
+     TO ADD/REMOVE A LANGUAGE: edit the includedLanguages string below (two places,
+     desktop + mobile widget) using ISO codes, comma-separated, no spaces. -->
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({
+    pageLanguage: 'en',
+    includedLanguages: 'en,ta,hi,te,kn,fr,ml,bn,mr,gu',
+    layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+  }, 'google_translate_element');
+  new google.translate.TranslateElement({
+    pageLanguage: 'en',
+    includedLanguages: 'en,ta,hi,te,kn,fr,ml,bn,mr,gu',
+    layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+  }, 'google_translate_element_mobile');
+}
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+</html>

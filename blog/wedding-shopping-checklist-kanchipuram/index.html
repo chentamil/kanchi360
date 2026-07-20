@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Complete Wedding Shopping Checklist for a Kanchipuram Trip | Kanchi360</title>
+<meta name="description" content="A practical checklist for planning a wedding shopping trip to Kanchipuram, covering sarees, jewellery, groom attire and timing.">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+<style>
+  :root {
+    --brand-primary: #B8541D;
+    --brand-primary-dark: #8F3F14;
+    --brand-accent: #D4A017;
+    --brand-ink: #2A1E14;
+    --radius-lg: 16px;
+    --radius-md: 10px;
+  }
+  body { font-family: "Segoe UI", system-ui, -apple-system, sans-serif; color: var(--brand-ink); }
+  h1, h2, h3, h4, h5 { font-weight: 700; }
+  section { scroll-margin-top: 84px; }
+
+  .navbar-brand { color: var(--brand-accent) !important; }
+  .btn-primary { background: var(--brand-primary); border-color: var(--brand-primary); }
+  .btn-primary:hover { background: var(--brand-primary-dark); border-color: var(--brand-primary-dark); }
+  .btn-outline-primary { color: var(--brand-primary); border-color: var(--brand-primary); }
+  .btn-outline-primary:hover { background: var(--brand-primary); border-color: var(--brand-primary); }
+  .text-primary { color: var(--brand-primary) !important; }
+  .badge.bg-warning { background: var(--brand-accent) !important; }
+
+  .card { border-radius: var(--radius-lg); border: none; transition: transform .2s ease, box-shadow .2s ease; }
+  .card:hover { transform: translateY(-4px); box-shadow: 0 12px 24px rgba(0,0,0,.12) !important; }
+  .card-img-top { border-radius: var(--radius-lg) var(--radius-lg) 0 0; }
+  .btn { border-radius: var(--radius-md); min-height: 44px; }
+  .btn-sm { min-height: 36px; }
+
+  /* dark mode */
+  body.dark-mode { background:#121212; color:#e8e0d8; }
+  body.dark-mode .card { background:#1e1e1e; color:#e8e0d8; }
+  body.dark-mode .bg-light { background:#181818 !important; }
+  body.dark-mode .text-muted { color:#a8a098 !important; }
+
+  /* scroll reveal */
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; }
+  .reveal.revealed { opacity: 1; transform: none; }
+
+  /* dark-mode toggle (static, desktop only) */
+  #darkToggle {
+    position: fixed; right: 20px; bottom: 20px; z-index: 1050; border-radius: 50%;
+    width: 48px; height: 48px; display: none; align-items: center; justify-content: center;
+  }
+  @media (min-width: 768px) { #darkToggle { display: flex; } }
+
+  /* back-to-top: created by js/modules/backToTop.js, styled here via .back-top/.show */
+  .back-top {
+    position: fixed; right: 20px; bottom: 80px; z-index: 1050; border-radius: 50%;
+    width: 48px; height: 48px; display: none; align-items: center; justify-content: center;
+    background: var(--brand-primary); color: #fff; border: none; box-shadow: 0 4px 12px rgba(0,0,0,.2);
+  }
+  .back-top.show { display: flex; }
+  @media (max-width: 767.98px) { .back-top { display: none !important; } }
+
+  /* mobile bottom nav (native-app style) */
+  #bottomNav {
+    display: flex; position: fixed; bottom: 0; left: 0; right: 0; z-index: 1040;
+    background: #fff; border-top: 1px solid rgba(0,0,0,.08); box-shadow: 0 -2px 10px rgba(0,0,0,.08);
+  }
+  #bottomNav a {
+    flex: 1; text-align: center; padding: 8px 4px; font-size: .7rem; color: #6b6b6b; text-decoration: none;
+  }
+  #bottomNav a i { display: block; font-size: 1.25rem; margin-bottom: 2px; }
+  #bottomNav a.active { color: var(--brand-primary); }
+  body.dark-mode #bottomNav { background:#1e1e1e; border-color:#333; }
+  @media (min-width: 768px) { #bottomNav { display: none; } }
+  main { padding-bottom: 0; }
+  @media (max-width: 767.98px) { main { padding-bottom: 64px; } }
+
+  /* google translate: hide google chrome, keep just the dropdown */
+  .goog-te-banner-frame { display: none !important; }
+  body { top: 0 !important; }
+  #google_translate_element { display: inline-block; }
+  #google_translate_element .goog-te-gadget { font-size: 0; }
+  #google_translate_element .goog-te-gadget-simple {
+    border-radius: var(--radius-md); border: 1px solid rgba(255,255,255,.3); padding: 4px 8px; background: transparent;
+  }
+  #google_translate_element .goog-te-gadget-simple span { color: #fff; font-size: .8rem; }
+
+  /* skeleton shimmer (used on search page while MiniSearch loads) */
+  .skeleton { background: linear-gradient(90deg, #eee 25%, #f5f5f5 50%, #eee 75%); background-size: 200% 100%; animation: shimmer 1.2s infinite; border-radius: var(--radius-md); }
+
+  /* blog sidebar category badges, now clickable buttons but still badge-sized */
+  .sidebar-cat-btn { font-size: .8rem; padding: .35em .65em; min-height: unset; }
+  @keyframes shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
+</style>
+</head>
+<body>
+
+<!-- ============ Desktop navbar (with integrated search) ============ -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="/"><i class="bi bi-building"></i> Kanchi360</a>
+
+    <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- desktop-only inline menu + search -->
+    <div class="d-none d-lg-flex align-items-center flex-grow-1 justify-content-end">
+      <ul class="navbar-nav me-3">
+        <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="/business/">Business</a></li>
+        <li class="nav-item"><a class="nav-link" href="/tourist-places/">Temples</a></li>
+        <li class="nav-item"><a class="nav-link" href="/#shoppingZone">Shopping</a></li>
+        <li class="nav-item"><a class="nav-link" href="/#festivalCalendar">Festivals</a></li>
+        <li class="nav-item"><a class="nav-link" href="/#reviews">Reviews</a></li>
+        <li class="nav-item"><a class="nav-link" href="/blog/">Blog</a></li>
+        <li class="nav-item"><a class="nav-link" href="/#faq">FAQ</a></li>
+        <li class="nav-item"><a class="nav-link" href="/#contactUs">Contact</a></li>
+        <li class="nav-item"><a class="nav-link text-warning" href="/advertise-with-us/">Advertise</a></li>
+      </ul>
+      <form action="/search/" method="get" class="position-relative me-3" role="search"
+            data-search-widget data-search-navigate>
+        <input type="search" name="q" data-search-box autocomplete="off"
+               class="form-control form-control-sm" style="width:180px" placeholder="Search...">
+        <div data-search-suggestions class="list-group position-absolute w-100 shadow" style="z-index:2000; display:none;"></div>
+      </form>
+      <div id="google_translate_element"></div>
+    </div>
+  </div>
+</nav>
+
+<!-- ============ Mobile offcanvas drawer menu ============ -->
+<div class="offcanvas offcanvas-start" tabindex="-1" id="mobileMenu">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title"><i class="bi bi-building"></i> Kanchi360</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+  </div>
+  <div class="offcanvas-body d-flex flex-column">
+    <form action="/search/" method="get" class="position-relative mb-3" role="search"
+          data-search-widget data-search-navigate>
+      <input type="search" name="q" data-search-box autocomplete="off"
+             class="form-control" placeholder="Search shops, hotels, temples...">
+      <div data-search-suggestions class="list-group position-absolute w-100 shadow" style="z-index:2000; display:none;"></div>
+    </form>
+    <ul class="nav nav-pills flex-column gap-1">
+      <li class="nav-item"><a class="nav-link" href="/"><i class="bi bi-house me-2"></i>Home</a></li>
+      <li class="nav-item"><a class="nav-link" href="/business/"><i class="bi bi-shop me-2"></i>Business Directory</a></li>
+      <li class="nav-item"><a class="nav-link" href="/tourist-places/"><i class="bi bi-bank me-2"></i>Temples</a></li>
+      <li class="nav-item"><a class="nav-link" href="/#shoppingZone"><i class="bi bi-bag me-2"></i>Shopping</a></li>
+      <li class="nav-item"><a class="nav-link" href="/#festivalCalendar"><i class="bi bi-calendar-event me-2"></i>Festivals</a></li>
+      <li class="nav-item"><a class="nav-link" href="/#emergencyNumbers"><i class="bi bi-telephone me-2"></i>Emergency Numbers</a></li>
+      <li class="nav-item"><a class="nav-link" href="/#reviews"><i class="bi bi-star me-2"></i>Reviews</a></li>
+      <li class="nav-item"><a class="nav-link" href="/blog/"><i class="bi bi-journal-text me-2"></i>Blog</a></li>
+      <li class="nav-item"><a class="nav-link" href="/#faq"><i class="bi bi-question-circle me-2"></i>FAQ</a></li>
+      <li class="nav-item"><a class="nav-link" href="/#contactUs"><i class="bi bi-envelope me-2"></i>Contact</a></li>
+      <li class="nav-item"><a class="nav-link text-warning" href="/advertise-with-us/"><i class="bi bi-megaphone me-2"></i>Advertise With Us</a></li>
+    </ul>
+    <div class="mt-auto pt-3" id="google_translate_element_mobile"></div>
+  </div>
+</div>
+
+<main>
+
+
+<!-- SEO: canonical + OpenGraph + Twitter Card -->
+<link rel="canonical" href="https://kanchi360.com/blog/wedding-shopping-checklist-kanchipuram/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="The Complete Wedding Shopping Checklist for a Kanchipuram Trip">
+<meta property="og:description" content="A practical checklist for planning a wedding shopping trip to Kanchipuram, covering sarees, jewellery, groom attire and timing.">
+<meta property="og:image" content="https://images.unsplash.com/photo-1583391733956-6c78276477e2?w=1200">
+<meta property="og:url" content="https://kanchi360.com/blog/wedding-shopping-checklist-kanchipuram/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Complete Wedding Shopping Checklist for a Kanchipuram Trip">
+<meta name="twitter:description" content="A practical checklist for planning a wedding shopping trip to Kanchipuram, covering sarees, jewellery, groom attire and timing.">
+<meta name="twitter:image" content="https://images.unsplash.com/photo-1583391733956-6c78276477e2?w=1200">
+
+<!-- JSON-LD: BlogPosting -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "The Complete Wedding Shopping Checklist for a Kanchipuram Trip",
+  "description": "A practical checklist for planning a wedding shopping trip to Kanchipuram, covering sarees, jewellery, groom attire and timing.",
+  "image": "https://images.unsplash.com/photo-1583391733956-6c78276477e2?w=1200",
+  "author": { "@type": "Organization", "name": "Kanchi360 Editorial" },
+  "publisher": { "@type": "Organization", "name": "Kanchi360" },
+  "datePublished": "2026-02-01",
+  "dateModified": "2026-02-04",
+  "mainEntityOfPage": "https://kanchi360.com/blog/wedding-shopping-checklist-kanchipuram/"
+}
+</script>
+
+<!-- JSON-LD: BreadcrumbList -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://kanchi360.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://kanchi360.com/blog/" },
+    { "@type": "ListItem", "position": 3, "name": "The Complete Wedding Shopping Checklist for a Kanchipuram Trip", "item": "https://kanchi360.com/blog/wedding-shopping-checklist-kanchipuram/" }
+  ]
+}
+</script>
+
+
+<!-- JSON-LD: FAQPage -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    
+    {
+      "@type": "Question",
+      "name": "How far in advance should wedding shopping in Kanchipuram be done?",
+      "acceptedAnswer": { "@type": "Answer", "text": "A few weeks to a couple of months before the wedding is a comfortable buffer, allowing time for tailoring and any follow-up adjustments, rather than shopping in the final days before the event." }
+    },
+    
+    {
+      "@type": "Question",
+      "name": "Should the whole family shop together or separately?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Either works, but shopping together for at least the main saree purchases makes it easier to coordinate colours and styles across family members attending the same functions, and can unlock bulk-purchase discounts many showrooms offer." }
+    },
+    
+    {
+      "@type": "Question",
+      "name": "How many days should we budget for a dedicated wedding shopping trip?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Two days is a realistic minimum for a thorough trip covering sarees, jewellery and groom shopping without rushing any single decision — one day is possible if your list is short or you already know exactly what you want." }
+    },
+    
+    {
+      "@type": "Question",
+      "name": "What should we do first if we only have one day?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Prioritize the Muhurtham saree and the groom's main ceremony outfit first, since these are the hardest to get right under time pressure — reception outfits and accessories are comparatively easier to finalize quickly or even arrange after you return home." }
+    }
+    
+  ]
+}
+</script>
+
+
+<!-- Hero -->
+<section class="py-4 py-md-5 bg-light">
+  <div class="container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item"><a href="/blog/">Blog</a></li>
+        <li class="breadcrumb-item"><a href="/blog/?category=Marriage">Marriage</a></li>
+        <li class="breadcrumb-item active">The Complete Wedding Shopping Checklist for a Kanchipuram Trip</li>
+      </ol>
+    </nav>
+    <span class="badge bg-secondary mb-2">Marriage</span>
+    <h1 class="fw-bold">The Complete Wedding Shopping Checklist for a Kanchipuram Trip</h1>
+    <p class="lead text-muted">A dedicated wedding shopping trip to Kanchipuram covers a lot of ground — sarees, jewellery, groom attire, and timing it all around your wedding date. Here&#39;s a checklist to keep you organized.</p>
+    <p class="text-muted small">
+      By Kanchi360 Editorial &middot; Published 1 Feb 2026
+      &middot; Updated 4 Feb 2026 &middot; 15 min read
+    </p>
+  </div>
+</section>
+
+<section class="py-4">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-8">
+        <img src="https://images.unsplash.com/photo-1583391733956-6c78276477e2?w=1200" alt="Wedding shopping items laid out together" class="img-fluid rounded shadow mb-4 w-100" loading="lazy">
+
+        <article>
+          
+            
+              <h2 class="mt-4 mb-3">Why Wedding Shopping Deserves Its Own Plan</h2>
+
+            
+          
+            
+              <p>A wedding shopping trip is a fundamentally different experience from casual saree shopping. You&#39;re not browsing for one nice piece — you&#39;re coordinating multiple outfits across multiple functions, for multiple people, on a deadline that can&#39;t move. Without a plan, it&#39;s very easy to spend an entire day in showrooms and still walk away with gaps in your list, simply because there was no structure to the visit. This checklist is built around the order most families actually shop in, so you can follow it function by function rather than wandering from shop to shop hoping to remember everything.</p>
+
+            
+          
+            
+              <h2 class="mt-4 mb-3">Before You Travel</h2>
+
+            
+          
+            
+              <ul>
+                <li>List every wedding function and who needs an outfit for each one</li><li>Set a rough budget range per function/person before you start shopping</li><li>Note down colour preferences or themes discussed with family</li><li>Book accommodation in advance, especially if travelling during wedding season</li><li>Read up on Silk Mark and GI tag basics so you can shop confidently (see our buying guide)</li>
+              </ul>
+
+            
+          
+            
+              <p>The single most valuable thing you can do before you even leave for Kanchipuram is write down every function your family is planning — not just &#39;the wedding&#39; as one event, but each distinct occasion: the Muhurtham, the reception, and any pre-wedding functions like an engagement or a sangeet-style evening. Against each function, note roughly how many people need an outfit and what kind of look you&#39;re going for. This single list becomes your shopping map for the whole trip, and it&#39;s the difference between an organised, efficient day and a chaotic one.</p>
+
+            
+          
+            
+              <h2 class="mt-4 mb-3">Saree Shopping</h2>
+
+            
+          
+            
+              <ul>
+                <li>Muhurtham saree — usually the heaviest, most important piece</li><li>Reception saree — lighter weight for comfort during a longer event</li><li>Sarees for close family members, loosely coordinated rather than exactly matched</li><li>Blouse pieces for each saree, with tailoring arranged early</li><li>Confirm zari type and get a proper bill for every purchase</li>
+              </ul>
+
+            
+          
+            
+              <p>Start your saree shopping with the Muhurtham piece, since it&#39;s the most important and usually the most expensive decision — deciding this first gives you a fixed reference point for how the rest of your budget should be allocated. Once that&#39;s settled, move to the reception saree, prioritizing comfort and a lighter weave given how long receptions typically run. Only after the bride&#39;s own pieces are settled should you move to sarees for other family members, where the goal is coordination rather than an exact match — many families now deliberately choose complementary rather than identical shades so photographs look cohesive without looking uniform.</p>
+
+            
+          
+            
+              
+                <div class="alert alert-success"><i class="bi bi-lightbulb me-2"></i>Quick Tip: Shop sarees before jewellery if possible — it&#39;s easier to match jewellery tones to a saree you&#39;ve already chosen than the other way around.</div>
+              
+
+            
+          
+            
+              <h2 class="mt-4 mb-3">Jewellery Shopping</h2>
+
+            
+          
+            
+              <ul>
+                <li>Decide between real gold, temple/imitation jewellery, or a mix of both</li><li>Check hallmarking on any real gold purchases</li><li>Bring a saree swatch or photo to help match jewellery tones</li><li>Ask about rental options for elaborate one-time bridal sets</li>
+              </ul>
+
+            
+          
+            
+              <p>Bridal jewellery shopping goes far more smoothly once your Muhurtham saree is already decided, since you can bring a swatch or photo and ask jewellers to help you match gold or kemp tones directly against it. Decide early whether you want an entirely real-gold set, a temple/imitation set for the bigger ceremonial pieces, or a mix — many modern brides combine a few real-gold pieces they&#39;ll wear again with elaborate rented or imitation pieces reserved just for the wedding day photographs (see our bridal jewellery guide for a deeper look at this decision).</p>
+
+            
+          
+            
+              <h2 class="mt-4 mb-3">Groom Shopping</h2>
+
+            
+          
+            
+              <ul>
+                <li>Veshti and angavastram for the main ceremony, ideally coordinated with the bride&#39;s saree</li><li>Separate outfit (often rented) for the reception</li><li>Accessories — chain, angavastram pin, appropriate footwear</li>
+              </ul>
+
+            
+          
+            
+              <p>Groom shopping is typically a shorter, simpler leg of the trip, but it shouldn&#39;t be an afterthought squeezed into the last ten minutes. A traditional silk veshti and angavastram for the ceremony, chosen in a complementary tone to the bride&#39;s Muhurtham saree, is usually bought outright since it gets reused for other family functions afterward. The reception outfit — often a sherwani or contemporary suit — is more commonly rented, especially if it&#39;s a style the groom is unlikely to wear again (see our groom shopping guide for more detail on buying versus renting).</p>
+
+            
+          
+            
+              <h2 class="mt-4 mb-3">Shopping for the Extended Family</h2>
+
+            
+          
+            
+              <p>If parents, siblings or close relatives are also buying outfits for the same wedding, it&#39;s worth doing this as a coordinated group visit rather than everyone shopping separately on their own schedule. Not only does this make colour coordination easier, many showrooms offer meaningful discounts on bulk family purchases made together in a single visit, which you&#39;ll miss out on if everyone buys individually across different days or different shops.</p>
+
+            
+          
+            
+              <h2 class="mt-4 mb-3">A Suggested Day-by-Day Shopping Flow</h2>
+
+            
+          
+            
+              <ul>
+                <li>Day 1 morning: Muhurtham saree, comparing 2-3 shops before deciding</li><li>Day 1 afternoon: reception saree and family sarees in the same visit if possible</li><li>Day 2 morning: bridal jewellery, bringing your chosen saree&#39;s swatch or photo</li><li>Day 2 afternoon: groom&#39;s veshti-angavastram and reception outfit arrangements</li><li>Before leaving: drop off blouse pieces for tailoring, confirm pickup or courier timeline</li>
+              </ul>
+
+            
+          
+            
+              <h2 class="mt-4 mb-3">Timing Considerations</h2>
+
+            
+          
+            
+              <p>Give yourself real time — rushing wedding shopping into a single hurried afternoon leads to compromises you might regret later. If possible, plan your Kanchipuram trip a few weeks to a couple of months before the wedding, leaving time for any tailoring, alterations, or a follow-up visit if needed. This buffer matters even more during peak wedding season, when tailoring queues run longer than usual and popular showrooms are busier than a typical visit.</p>
+
+            
+          
+            
+              
+                <div class="alert alert-warning"><i class="bi bi-exclamation-triangle me-2"></i>Warning: Avoid leaving all wedding shopping to the final week — tailoring queues get long during peak wedding season, and last-minute decisions rarely get the same careful comparison as unhurried shopping.</div>
+              
+
+            
+          
+            
+              <h2 class="mt-4 mb-3">After You Get Home</h2>
+
+            
+          
+            
+              <p>Once you&#39;re back, don&#39;t let the sarees sit untouched until the week of the wedding. Get blouse pieces to your tailor promptly, do at least one trial fitting well before the event so there&#39;s time to correct anything, and store finished garments properly (see our saree care tips in the buying guide) so they&#39;re in perfect condition on the actual day rather than needing a last-minute press or repair.</p>
+
+            
+          
+            
+              <div class="card shadow-sm mb-3"><div class="card-body">
+                <h6 class="fw-bold">How far in advance should wedding shopping in Kanchipuram be done?</h6>
+                <p class="mb-0 text-muted">A few weeks to a couple of months before the wedding is a comfortable buffer, allowing time for tailoring and any follow-up adjustments, rather than shopping in the final days before the event.</p>
+              </div></div>
+            
+          
+            
+              <div class="card shadow-sm mb-3"><div class="card-body">
+                <h6 class="fw-bold">Should the whole family shop together or separately?</h6>
+                <p class="mb-0 text-muted">Either works, but shopping together for at least the main saree purchases makes it easier to coordinate colours and styles across family members attending the same functions, and can unlock bulk-purchase discounts many showrooms offer.</p>
+              </div></div>
+            
+          
+            
+              <div class="card shadow-sm mb-3"><div class="card-body">
+                <h6 class="fw-bold">How many days should we budget for a dedicated wedding shopping trip?</h6>
+                <p class="mb-0 text-muted">Two days is a realistic minimum for a thorough trip covering sarees, jewellery and groom shopping without rushing any single decision — one day is possible if your list is short or you already know exactly what you want.</p>
+              </div></div>
+            
+          
+            
+              <div class="card shadow-sm mb-3"><div class="card-body">
+                <h6 class="fw-bold">What should we do first if we only have one day?</h6>
+                <p class="mb-0 text-muted">Prioritize the Muhurtham saree and the groom&#39;s main ceremony outfit first, since these are the hardest to get right under time pressure — reception outfits and accessories are comparatively easier to finalize quickly or even arrange after you return home.</p>
+              </div></div>
+            
+          
+        </article>
+
+        
+        <h3 class="mt-5 mb-3">Frequently Asked Questions</h3>
+        <div class="accordion" id="postFaqAccordion">
+          
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button " data-bs-toggle="collapse" data-bs-target="#postFaq1">
+                How far in advance should wedding shopping in Kanchipuram be done?
+              </button>
+            </h2>
+            <div id="postFaq1" class="accordion-collapse collapse show" data-bs-parent="#postFaqAccordion">
+              <div class="accordion-body">A few weeks to a couple of months before the wedding is a comfortable buffer, allowing time for tailoring and any follow-up adjustments, rather than shopping in the final days before the event.</div>
+            </div>
+          </div>
+          
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#postFaq2">
+                Should the whole family shop together or separately?
+              </button>
+            </h2>
+            <div id="postFaq2" class="accordion-collapse collapse " data-bs-parent="#postFaqAccordion">
+              <div class="accordion-body">Either works, but shopping together for at least the main saree purchases makes it easier to coordinate colours and styles across family members attending the same functions, and can unlock bulk-purchase discounts many showrooms offer.</div>
+            </div>
+          </div>
+          
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#postFaq3">
+                How many days should we budget for a dedicated wedding shopping trip?
+              </button>
+            </h2>
+            <div id="postFaq3" class="accordion-collapse collapse " data-bs-parent="#postFaqAccordion">
+              <div class="accordion-body">Two days is a realistic minimum for a thorough trip covering sarees, jewellery and groom shopping without rushing any single decision — one day is possible if your list is short or you already know exactly what you want.</div>
+            </div>
+          </div>
+          
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#postFaq4">
+                What should we do first if we only have one day?
+              </button>
+            </h2>
+            <div id="postFaq4" class="accordion-collapse collapse " data-bs-parent="#postFaqAccordion">
+              <div class="accordion-body">Prioritize the Muhurtham saree and the groom&#39;s main ceremony outfit first, since these are the hardest to get right under time pressure — reception outfits and accessories are comparatively easier to finalize quickly or even arrange after you return home.</div>
+            </div>
+          </div>
+          
+        </div>
+        
+
+        <div class="mt-4">
+          <span class="badge bg-light text-dark border me-1">wedding shopping checklist</span><span class="badge bg-light text-dark border me-1">Kanchipuram wedding trip planning</span><span class="badge bg-light text-dark border me-1">wedding shopping list</span>
+        </div>
+      </div>
+
+      <div class="col-lg-4">
+        <div class="card shadow-sm mb-4"><div class="card-body">
+          <h6 class="mb-3">Related Articles</h6>
+          <ul class="list-unstyled small mb-0">
+            
+            <li class="mb-2">
+              <a href="/blog/where-to-buy-groom-wedding-dress-kanchipuram/" class="text-decoration-none">Where to Buy Groom Wedding Dresses in and Around Kanchipuram</a>
+              <span class="text-muted d-block" style="font-size:.75rem">Marriage</span>
+            </li>
+            
+            <li class="mb-2">
+              <a href="/blog/bridal-jewellery-buying-guide-kanchipuram/" class="text-decoration-none">Bridal Jewellery Buying Guide: What to Know Before Shopping in Kanchipuram</a>
+              <span class="text-muted d-block" style="font-size:.75rem">Marriage</span>
+            </li>
+            
+            <li class="mb-2">
+              <a href="/blog/wedding-saree-buying-guide-kanchipuram/" class="text-decoration-none">Wedding Saree Buying Guide: How to Choose the Right Kanchipuram Silk for Your Big Day</a>
+              <span class="text-muted d-block" style="font-size:.75rem">Marriage</span>
+            </li>
+            
+            <li class="mb-2">
+              <a href="/blog/nearby-tourist-places-around-kanchipuram/" class="text-decoration-none">Nearby Tourist Places Around Kanchipuram: Where to Go Next</a>
+              <span class="text-muted d-block" style="font-size:.75rem">Tourism</span>
+            </li>
+            
+            <li class="mb-2">
+              <a href="/blog/shopping-tips-for-foreign-tourists-kanchipuram/" class="text-decoration-none">Shopping Tips for Foreign Tourists Visiting Kanchipuram</a>
+              <span class="text-muted d-block" style="font-size:.75rem">Shopping</span>
+            </li>
+            
+            <li class="mb-2">
+              <a href="/blog/photography-spots-in-kanchipuram/" class="text-decoration-none">Best Photography Spots in Kanchipuram</a>
+              <span class="text-muted d-block" style="font-size:.75rem">Tourism</span>
+            </li>
+            
+          </ul>
+        </div></div>
+
+        <div class="card shadow-sm"><div class="card-body">
+          <h6 class="mb-3">Explore More</h6>
+          <a href="/business/" class="btn btn-sm btn-outline-primary w-100 mb-2">Business Directory</a>
+          <a href="/tourist-places/" class="btn btn-sm btn-outline-primary w-100 mb-2">Temples &amp; Places</a>
+          <a href="/blog/" class="btn btn-sm btn-outline-primary w-100">All Blog Articles</a>
+        </div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ Footer ============ -->
+<footer class="bg-dark text-light pt-5 pb-4 mt-5">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-md-4">
+        <h5 class="text-warning"><i class="bi bi-building"></i> Kanchi360</h5>
+        <p class="text-secondary small">Your local guide to Kanchipuram — temples, shopping, hotels and services in one place.</p>
+      </div>
+      <div class="col-md-4">
+        <h6>Quick Links</h6>
+        <ul class="list-unstyled small">
+          <li><a href="/business/" class="link-light link-opacity-75">Business Directory</a></li>
+          <li><a href="/tourist-places/" class="link-light link-opacity-75">Temples &amp; Places</a></li>
+          <li><a href="/blog/" class="link-light link-opacity-75">Blog</a></li>
+          <li><a href="/#emergencyNumbers" class="link-light link-opacity-75">Emergency Numbers</a></li>
+        </ul>
+      </div>
+      <div class="col-md-4">
+        <h6>List Your Business</h6>
+        <p class="text-secondary small">Free basic listings, premium placements available.</p>
+        <a href="/#contactUs" class="btn btn-sm btn-warning text-dark">Get Listed</a>
+      </div>
+    </div>
+    <hr class="border-secondary">
+    <p class="text-center small">
+      <a href="/privacy-policy/" class="link-light link-opacity-75 me-2">Privacy Policy</a>&middot;
+      <a href="/terms-of-use/" class="link-light link-opacity-75 mx-2">Terms of Use</a>&middot;
+      <a href="/terms-and-conditions/" class="link-light link-opacity-75 mx-2">Terms &amp; Conditions</a>&middot;
+      <a href="/infringement-policy/" class="link-light link-opacity-75 ms-2">Infringement Policy</a>
+    </p>
+    <p class="text-secondary small">
+      <strong class="text-light">Advertise on Kanchi360 — Get Seen by More Local Customers.</strong>
+      Kanchipuram businesses grow faster when the right customers can find them at the right moment.
+      Kanchi360 puts your listing in front of people already searching in your category and area, with
+      plans covering higher search placement, an online catalogue, a verified badge and homepage banner
+      spots. <a href="/business-plans/" class="link-warning">Compare plans</a> or
+      <a href="/advertise-with-us/" class="link-warning">learn how it works</a> to get your business listed.
+    </p>
+    <p class="text-center text-secondary small mb-0">&copy; Kanchi360. Built for Kanchipuram.</p>
+  </div>
+</footer>
+
+<!-- ============ Floating dark-mode toggle (desktop) - back-to-top is added by JS ============ -->
+<button id="darkToggle" class="btn btn-warning">🌙</button>
+
+<!-- ============ Mobile bottom nav ============ -->
+<nav id="bottomNav">
+  <a href="/"><i class="bi bi-house"></i>Home</a>
+  <a href="/business/"><i class="bi bi-shop"></i>Business</a>
+  <a href="/search/"><i class="bi bi-search"></i>Search</a>
+  <a href="#" id="bottomNavWishlist"><i class="bi bi-heart"></i>Favorites</a>
+  <a href="#" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu"><i class="bi bi-list"></i>Menu</a>
+</nav>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- components first (other modules depend on these) -->
+<script src="/js/components/toast.js"></script>
+<script src="/js/components/modal.js"></script>
+
+<!-- feature modules: each one is independent, safe to edit without touching the rest -->
+<script src="/js/modules/theme.js"></script>
+<script src="/js/modules/booking.js"></script>
+<script src="/js/modules/wishlist.js"></script>
+<script src="/js/modules/counters.js"></script>
+<script src="/js/modules/templeSearch.js"></script>
+<script src="/js/modules/contactForm.js"></script>
+<script src="/js/modules/backToTop.js"></script>
+<script src="/js/modules/scrollReveal.js"></script>
+
+<!-- entry point, loaded last -->
+<script src="https://cdn.jsdelivr.net/npm/minisearch@7.2.0/dist/umd/index.min.js"></script>
+<script src="/js/search.js"></script>
+<script src="/js/core/app.js"></script>
+
+<!-- Google Translate, restricted to our supported languages.
+     TO ADD/REMOVE A LANGUAGE: edit the includedLanguages string below (two places,
+     desktop + mobile widget) using ISO codes, comma-separated, no spaces. -->
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({
+    pageLanguage: 'en',
+    includedLanguages: 'en,ta,hi,te,kn,fr,ml,bn,mr,gu',
+    layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+  }, 'google_translate_element');
+  new google.translate.TranslateElement({
+    pageLanguage: 'en',
+    includedLanguages: 'en,ta,hi,te,kn,fr,ml,bn,mr,gu',
+    layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+  }, 'google_translate_element_mobile');
+}
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+</html>
