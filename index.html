@@ -90,6 +90,45 @@
 
   /* blog sidebar category badges, now clickable buttons but still badge-sized */
   .sidebar-cat-btn { font-size: .8rem; padding: .35em .65em; min-height: unset; }
+
+  /* Lightweight slider: pure CSS scroll-snap, native touch swipe on mobile,
+     no JS library needed for the swipe itself (unlike Slick/Swiper). */
+  .kc-slider {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 1rem;
+    padding-bottom: .5rem;
+    scrollbar-width: thin;
+  }
+  .kc-slider::-webkit-scrollbar { height: 6px; }
+  .kc-slider::-webkit-scrollbar-thumb { background: rgba(0,0,0,.15); border-radius: 3px; }
+  .kc-slide {
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+    width: 110px;
+    text-align: center;
+    text-decoration: none;
+    color: inherit;
+  }
+  .kc-slide img {
+    width: 72px; height: 72px; object-fit: cover; border-radius: 50%;
+    margin: 0 auto .5rem; display: block; box-shadow: 0 2px 8px rgba(0,0,0,.12);
+  }
+  .kc-slide span { font-size: .8rem; display: block; }
+  .kc-slider-wrap { position: relative; }
+  .kc-slider-arrow {
+    position: absolute; top: 40%; transform: translateY(-50%);
+    background: #fff; border: 1px solid rgba(0,0,0,.1); border-radius: 50%;
+    width: 36px; height: 36px; display: none; align-items: center; justify-content: center;
+    box-shadow: 0 2px 6px rgba(0,0,0,.15); z-index: 5;
+  }
+  .kc-slider-arrow.prev { left: -6px; }
+  .kc-slider-arrow.next { right: -6px; }
+  @media (min-width: 768px) {
+    .kc-slider-arrow { display: flex; }
+  }
   @keyframes shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
 </style>
 </head>
@@ -173,8 +212,150 @@
         </div>
       </div>
       <div class="col-lg-6 text-center">
-        <img src="https://placehold.co/700x450?text=Kanchipuram" class="img-fluid rounded shadow" alt="Kanchipuram">
+        <img src="https://placehold.co/600x400?text=Kanchipuram" class="img-fluid rounded shadow" alt="Kanchipuram">
       </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-4 py-md-5">
+  <div class="container">
+    <h2 class="mb-3 fs-4">Browse by Category</h2>
+    <div class="kc-slider-wrap">
+      <button class="kc-slider-arrow prev" aria-label="Previous"><i class="bi bi-chevron-left"></i></button>
+      <div class="kc-slider">
+        
+          
+          <a href="/business/?category=saree-shops" class="kc-slide">
+            <img src="https://placehold.co/600x400?text=Saree%20Shops" alt="Saree Shops" loading="lazy">
+            <span>Saree Shops</span>
+          </a>
+          
+        
+          
+          <a href="/business/?category=hotels" class="kc-slide">
+            <img src="https://placehold.co/600x400?text=Hotels" alt="Hotels" loading="lazy">
+            <span>Hotels</span>
+          </a>
+          
+        
+          
+          <a href="/business/?category=cab-service" class="kc-slide">
+            <img src="https://placehold.co/600x400?text=Cab%20Service" alt="Cab Service" loading="lazy">
+            <span>Cab Service</span>
+          </a>
+          
+        
+          
+          <a href="/business/?category=hospitals" class="kc-slide">
+            <img src="https://placehold.co/600x400?text=Hospitals" alt="Hospitals" loading="lazy">
+            <span>Hospitals</span>
+          </a>
+          
+        
+          
+          <a href="/business/?category=jewellery" class="kc-slide">
+            <img src="https://placehold.co/600x400?text=Jewellery" alt="Jewellery" loading="lazy">
+            <span>Jewellery</span>
+          </a>
+          
+        
+      </div>
+      <button class="kc-slider-arrow next" aria-label="Next"><i class="bi bi-chevron-right"></i></button>
+    </div>
+  </div>
+</section>
+
+<section class="py-4 py-md-5 bg-light">
+  <div class="container">
+    <h2 class="mb-4 fs-4">Explore Kanchi360 by Group</h2>
+    <div class="row g-4">
+      
+        
+        <div class="col-md-3 col-6">
+          <a href="/business/?category=saree-shops" class="text-decoration-none text-dark">
+            <h6 class="fw-bold mb-2">Saree Shops</h6>
+          </a>
+          <div class="row g-2">
+            
+              <div class="col-12">
+                <a href="/business/?category=saree-shops" class="text-decoration-none text-dark">
+                  <img src="https://placehold.co/600x400?text=Saree%20Shops" alt="Saree Shops" loading="lazy"
+                       class="rounded mb-1 w-100" style="aspect-ratio:2/1;object-fit:cover">
+                </a>
+              </div>
+            
+          </div>
+        </div>
+      
+        
+        <div class="col-md-3 col-6">
+          <a href="/business/?category=hotels" class="text-decoration-none text-dark">
+            <h6 class="fw-bold mb-2">Hotels</h6>
+          </a>
+          <div class="row g-2">
+            
+              <div class="col-12">
+                <a href="/business/?category=hotels" class="text-decoration-none text-dark">
+                  <img src="https://placehold.co/600x400?text=Hotels" alt="Hotels" loading="lazy"
+                       class="rounded mb-1 w-100" style="aspect-ratio:2/1;object-fit:cover">
+                </a>
+              </div>
+            
+          </div>
+        </div>
+      
+        
+        <div class="col-md-3 col-6">
+          <a href="/business/?category=cab-service" class="text-decoration-none text-dark">
+            <h6 class="fw-bold mb-2">Cab Service</h6>
+          </a>
+          <div class="row g-2">
+            
+              <div class="col-12">
+                <a href="/business/?category=cab-service" class="text-decoration-none text-dark">
+                  <img src="https://placehold.co/600x400?text=Cab%20Service" alt="Cab Service" loading="lazy"
+                       class="rounded mb-1 w-100" style="aspect-ratio:2/1;object-fit:cover">
+                </a>
+              </div>
+            
+          </div>
+        </div>
+      
+        
+        <div class="col-md-3 col-6">
+          <a href="/business/?category=hospitals" class="text-decoration-none text-dark">
+            <h6 class="fw-bold mb-2">Hospitals</h6>
+          </a>
+          <div class="row g-2">
+            
+              <div class="col-12">
+                <a href="/business/?category=hospitals" class="text-decoration-none text-dark">
+                  <img src="https://placehold.co/600x400?text=Hospitals" alt="Hospitals" loading="lazy"
+                       class="rounded mb-1 w-100" style="aspect-ratio:2/1;object-fit:cover">
+                </a>
+              </div>
+            
+          </div>
+        </div>
+      
+        
+        <div class="col-md-3 col-6">
+          <a href="/business/?category=jewellery" class="text-decoration-none text-dark">
+            <h6 class="fw-bold mb-2">Jewellery</h6>
+          </a>
+          <div class="row g-2">
+            
+              <div class="col-12">
+                <a href="/business/?category=jewellery" class="text-decoration-none text-dark">
+                  <img src="https://placehold.co/600x400?text=Jewellery" alt="Jewellery" loading="lazy"
+                       class="rounded mb-1 w-100" style="aspect-ratio:2/1;object-fit:cover">
+                </a>
+              </div>
+            
+          </div>
+        </div>
+      
     </div>
   </div>
 </section>
@@ -1217,6 +1398,7 @@
 <script src="/js/modules/contactForm.js"></script>
 <script src="/js/modules/backToTop.js"></script>
 <script src="/js/modules/scrollReveal.js"></script>
+<script src="/js/modules/slider.js"></script>
 
 <!-- entry point, loaded last -->
 <script src="https://cdn.jsdelivr.net/npm/minisearch@7.2.0/dist/umd/index.min.js"></script>

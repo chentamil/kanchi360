@@ -90,6 +90,45 @@
 
   /* blog sidebar category badges, now clickable buttons but still badge-sized */
   .sidebar-cat-btn { font-size: .8rem; padding: .35em .65em; min-height: unset; }
+
+  /* Lightweight slider: pure CSS scroll-snap, native touch swipe on mobile,
+     no JS library needed for the swipe itself (unlike Slick/Swiper). */
+  .kc-slider {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 1rem;
+    padding-bottom: .5rem;
+    scrollbar-width: thin;
+  }
+  .kc-slider::-webkit-scrollbar { height: 6px; }
+  .kc-slider::-webkit-scrollbar-thumb { background: rgba(0,0,0,.15); border-radius: 3px; }
+  .kc-slide {
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+    width: 110px;
+    text-align: center;
+    text-decoration: none;
+    color: inherit;
+  }
+  .kc-slide img {
+    width: 72px; height: 72px; object-fit: cover; border-radius: 50%;
+    margin: 0 auto .5rem; display: block; box-shadow: 0 2px 8px rgba(0,0,0,.12);
+  }
+  .kc-slide span { font-size: .8rem; display: block; }
+  .kc-slider-wrap { position: relative; }
+  .kc-slider-arrow {
+    position: absolute; top: 40%; transform: translateY(-50%);
+    background: #fff; border: 1px solid rgba(0,0,0,.1); border-radius: 50%;
+    width: 36px; height: 36px; display: none; align-items: center; justify-content: center;
+    box-shadow: 0 2px 6px rgba(0,0,0,.15); z-index: 5;
+  }
+  .kc-slider-arrow.prev { left: -6px; }
+  .kc-slider-arrow.next { right: -6px; }
+  @media (min-width: 768px) {
+    .kc-slider-arrow { display: flex; }
+  }
   @keyframes shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
 </style>
 </head>
@@ -278,6 +317,7 @@
 <script src="/js/modules/contactForm.js"></script>
 <script src="/js/modules/backToTop.js"></script>
 <script src="/js/modules/scrollReveal.js"></script>
+<script src="/js/modules/slider.js"></script>
 
 <!-- entry point, loaded last -->
 <script src="https://cdn.jsdelivr.net/npm/minisearch@7.2.0/dist/umd/index.min.js"></script>
